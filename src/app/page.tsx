@@ -1,109 +1,117 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
-import { useToast } from '@/components/Toast';
 import LoadingStates from '@/components/LoadingStates';
 
 export default function Donate() {
   const [isLoading, setIsLoading] = useState(false);
-  const toast = useToast();
+
+  const handleZeffyDonate = () => {
+    console.log('Zeffy donate button clicked');
+    console.log('Window object:', typeof window);
+    console.log('Zeffy modal function:', (window as any).zf_modal);
+    console.log('Zeffy SDK:', (window as any).zeffySDK);
+    
+    // Try to trigger Zeffy modal manually if the data attribute doesn't work
+    if (typeof window !== 'undefined' && (window as any).zf_modal) {
+      console.log('Opening Zeffy modal via zf_modal');
+      (window as any).zf_modal.open('https://www.zeffy.com/embed/donation-form/support-ukiah-senior-center?modal=true');
+    } else if (typeof window !== 'undefined' && (window as any).zeffySDK) {
+      console.log('Opening Zeffy modal via zeffySDK');
+      (window as any).zeffySDK.open('https://www.zeffy.com/embed/donation-form/support-ukiah-senior-center?modal=true');
+    } else {
+      console.log('Zeffy not available, opening in new tab');
+      // Fallback to opening in new tab
+      window.open('https://www.zeffy.com/embed/donation-form/support-ukiah-senior-center', '_blank');
+    }
+  };
 
   const handlePayPalDonate = () => {
     setIsLoading(true);
-    // TODO: Redirect to PayPal
+    // Redirect to PayPal with the correct donation link
     setTimeout(() => {
       setIsLoading(false);
-      window.open('https://paypal.me/ukiahseniorcenter', '_blank');
-    }, 1000);
+      window.open('https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=ATG4CRDN2LAKC', '_blank');
+    }, 500);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
-      <div className="max-w-4xl mx-auto py-16 px-6">
-        
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            Support Ukiah Senior Center
+    <div className="min-h-screen bg-white">
+      {/* Simple Header */}
+      <div className="bg-blue-600 py-8">
+        <div className="max-w-4xl mx-auto px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Support Our Senior Center
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Your donation helps us provide vital services, meals, and programs 
-            to seniors in our community. Every contribution makes a difference.
+          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+            Your donation helps provide meals, activities, and support to seniors in our community
+          </p>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="max-w-3xl mx-auto py-16 px-8">
+        
+        {/* Primary Donation Button */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-semibold text-gray-800 mb-8">
+            Make a Secure Donation
+          </h2>
+          
+          <button
+            className="zeffy-donation-button bg-green-600 hover:bg-green-700 text-white font-bold py-6 px-16 rounded-2xl text-2xl transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed mb-8 block mx-auto"
+            data-zeffy-form-link="https://www.zeffy.com/embed/donation-form/support-ukiah-senior-center?modal=true"
+            onClick={handleZeffyDonate}
+            disabled={isLoading}
+          >
+            {isLoading ? <LoadingStates size="sm" /> : 'Donate Now'}
+          </button>
+
+          <p className="text-lg text-gray-600 mb-8">
+            Safe and secure donation processing
           </p>
         </div>
 
-        {/* Main Donation Card */}
-        <div className="bg-white rounded-3xl shadow-xl p-12 mb-8">
-          
-          {/* Zephy Donation Section */}
-          <div className="text-center mb-12">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-              Make a Secure Donation
-            </h2>
-            <p className="text-gray-600 mb-8">
-              Choose your donation amount and method below
-            </p>
-            
-            <button
-              zeffy-form-link="https://www.zeffy.com/embed/donation-form/support-ukiah-senior-center?modal=true"
-              disabled={isLoading}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-12 rounded-2xl text-lg transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isLoading ? <LoadingStates size="sm" /> : 'Donate Now'}
-            </button>
-          </div>
-
-          {/* Tip Opt-out Information */}
-          <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-8">
-            <h3 className="font-semibold text-blue-800 mb-2">
-              💡 About Processing Tips
-            </h3>
-            <p className="text-blue-700 text-sm">
-              During checkout, you may see an option to add a tip to cover processing fees. 
-              This tip is optional and goes to the payment processor, not to Ukiah Senior Center. 
-              You can choose to remove or adjust this tip if you prefer.
-            </p>
-          </div>
-
-          {/* PayPal Alternative */}
-          <div className="border-t pt-8">
-            <div className="text-center">
-              <p className="text-gray-600 mb-4">Prefer a different payment method?</p>
-              <button
-                onClick={handlePayPalDonate}
-                disabled={isLoading}
-                className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-8 rounded-xl transition-all shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isLoading ? <LoadingStates size="sm" /> : 'Donate via PayPal'}
-              </button>
-            </div>
-          </div>
+        {/* Tip Information - Simplified */}
+        <div className="bg-blue-50 border-l-4 border-blue-400 p-6 mb-12 rounded-r-lg">
+          <h3 className="font-semibold text-blue-800 mb-3 text-xl">
+            💡 About Processing Tips
+          </h3>
+          <p className="text-blue-700 text-lg leading-relaxed">
+            You may see an optional tip during checkout. This tip goes to the payment processor, not to us. 
+            You can remove or adjust it if you prefer.
+          </p>
         </div>
 
-        {/* Impact Information */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-            <div className="text-4xl mb-4">🍽️</div>
-            <h3 className="font-semibold text-gray-800 mb-2">Nutritious Meals</h3>
-            <p className="text-gray-600 text-sm">Your donation helps provide healthy meals to seniors in need</p>
-          </div>
-          <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-            <div className="text-4xl mb-4">🎯</div>
-            <h3 className="font-semibold text-gray-800 mb-2">Activities & Programs</h3>
-            <p className="text-gray-600 text-sm">Fund engaging activities that keep our seniors active and social</p>
-          </div>
-          <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
-            <div className="text-4xl mb-4">🤝</div>
-            <h3 className="font-semibold text-gray-800 mb-2">Community Support</h3>
-            <p className="text-gray-600 text-sm">Enable transportation, wellness programs, and vital services</p>
-          </div>
+        {/* Alternative Payment */}
+        <div className="text-center border-t-2 border-gray-200 pt-12">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-6">
+            Prefer PayPal?
+          </h3>
+          <button
+            onClick={handlePayPalDonate}
+            disabled={isLoading}
+            className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-5 px-12 rounded-xl text-xl transition-all shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isLoading ? <LoadingStates size="sm" /> : 'Donate with PayPal'}
+          </button>
         </div>
 
-        {/* Footer */}
-        <div className="text-center text-gray-500 text-sm">
+        {/* Simple Impact Statement */}
+        <div className="text-center mt-16 bg-gray-50 p-8 rounded-2xl">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+            Your donation makes a difference
+          </h3>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            Every contribution helps us provide nutritious meals, engaging activities, 
+            and essential services to seniors in our community.
+          </p>
+        </div>
+
+        {/* Tax Information */}
+        <div className="text-center mt-12 text-gray-500 text-lg">
           <p>Ukiah Senior Center is a 501(c)(3) nonprofit organization.</p>
-          <p className="mt-2">Your donation is tax-deductible to the full extent allowed by law.</p>
+          <p className="mt-2">Your donation is tax-deductible.</p>
         </div>
       </div>
     </div>
