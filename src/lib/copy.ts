@@ -6,7 +6,7 @@ export const COPY = {
   subhead: 'Your donation helps provide meals, activities, and support to seniors in our community.',
   
   // Buttons
-  primaryButton: 'Donate Securely with Zeffy',
+  primaryButton: 'Donate Now',
   secondaryButton: 'Donate with PayPal',
   
   // Modal
