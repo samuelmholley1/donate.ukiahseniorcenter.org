@@ -3,18 +3,11 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { useToast } from '@/components/Toast';
-import Modal from '@/components/Modal';
 import LoadingStates from '@/components/LoadingStates';
 
 export default function Donate() {
-  const [isZeffyOpen, setIsZeffyOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const toast = useToast();
-
-  const handleZeffyDonate = () => {
-    setIsZeffyOpen(true);
-    // TODO: Initialize Zeffy payment widget
-  };
 
   const handlePayPalDonate = () => {
     setIsLoading(true);
@@ -53,7 +46,7 @@ export default function Donate() {
             </p>
             
             <button
-              onClick={handleZeffyDonate}
+              zeffy-form-link="https://www.zeffy.com/embed/donation-form/support-ukiah-senior-center?modal=true"
               disabled={isLoading}
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-12 rounded-2xl text-lg transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
             >
@@ -113,23 +106,6 @@ export default function Donate() {
           <p className="mt-2">Your donation is tax-deductible to the full extent allowed by law.</p>
         </div>
       </div>
-
-      {/* Zeffy Modal */}
-      <Modal
-        isOpen={isZeffyOpen}
-        onClose={() => setIsZeffyOpen(false)}
-        title="Complete Your Donation"
-      >
-        <div className="p-6">
-          <div className="text-center py-12">
-            <div className="text-6xl mb-4">💳</div>
-            <p className="text-gray-600 mb-4">Zeffy payment widget will be embedded here</p>
-            <p className="text-sm text-gray-500">
-              This is where the Zeffy payment processor integration will be implemented
-            </p>
-          </div>
-        </div>
-      </Modal>
     </div>
   );
 }
