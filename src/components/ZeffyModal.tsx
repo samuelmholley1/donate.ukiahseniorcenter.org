@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { createPortal } from 'react-dom';
+import Image from 'next/image';
 import { COPY, ZEFFY_EMBED_URL } from '@/lib/copy';
 
 interface ZeffyModalProps {
@@ -123,11 +124,20 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
         ref={modalRef}
         className="relative bg-white rounded-2xl shadow-2xl w-full max-w-[960px] max-h-[95vh] flex flex-col overflow-hidden"
       >
-        {/* Modal Header */}
+        {/* Modal Header with Logo */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200">
-          <h2 id="modal-title" className="text-2xl font-semibold text-slate-900">
-            {COPY.modalTitle}
-          </h2>
+          <div className="flex items-center gap-4">
+            <Image
+              src="/logo.png"
+              alt="Ukiah Senior Center"
+              width={48}
+              height={48}
+              className="rounded-lg"
+            />
+            <h2 id="modal-title" className="text-2xl font-semibold text-slate-900">
+              {COPY.modalTitle}
+            </h2>
+          </div>
           <button
             ref={closeButtonRef}
             onClick={handleClose}
