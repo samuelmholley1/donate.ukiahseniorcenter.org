@@ -22,8 +22,17 @@ export default function Donate() {
       console.log('[Analytics] paypal_click');
     }
     
-    // Navigate to PayPal
-    window.location.href = PAYPAL_URL;
+    // Open PayPal in a popup window (more contained than full tab)
+    const width = 800;
+    const height = 700;
+    const left = (window.screen.width - width) / 2;
+    const top = (window.screen.height - height) / 2;
+    
+    window.open(
+      PAYPAL_URL,
+      'PayPal Donation',
+      `width=${width},height=${height},left=${left},top=${top},toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes`
+    );
   };
 
   return (
