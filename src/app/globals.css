@@ -64,15 +64,116 @@
   --radius-2xl: 1.5rem;   /* 24px */
 }
 
-/* Light mode only - Designed for seniors */
+/* Light mode only - Designed for seniors with enterprise polish */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 18px; /* Larger base font for seniors */
+  font-size: 16px; /* Standard enterprise size with scaling for accessibility */
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enterprise-grade focus states */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+
+/* Enhanced button animations */
+button {
+  transform: translateY(0);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Enterprise gradient animations */
+.bg-gradient-to-r {
+  background-size: 200% 100%;
+  transition: background-position 0.3s ease;
+}
+
+.bg-gradient-to-r:hover {
+  background-position: 100% 0;
+}
+
+/* Sophisticated card hover effects */
+.shadow-lg:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Professional loading states */
+@keyframes enterprise-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+.animate-enterprise-pulse {
+  animation: enterprise-pulse 2s ease-in-out infinite;
+}
+
+/* Smooth page transitions */
+.page-transition {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enterprise input styling */
+input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #3b82f6;
+}
+
+/* Accessibility improvements for seniors */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-slideDown,
+  .animate-slideIn,
+  .animate-fadeIn {
+    animation-duration: 0.3s;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border: #000000;
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Large text support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 * {
