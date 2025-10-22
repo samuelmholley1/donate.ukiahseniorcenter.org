@@ -10,16 +10,28 @@ export default function Donate() {
   const handleZeffyDonate = () => {
     console.log('Zeffy donate button clicked');
     console.log('Window object:', typeof window);
-    console.log('Zeffy modal function:', (window as any).zf_modal);
-    console.log('Zeffy SDK:', (window as any).zeffySDK);
+    
+    // Define proper types for Zeffy integration
+    interface ZeffyWindow extends Window {
+      zf_modal?: {
+        open: (url: string) => void;
+      };
+      zeffySDK?: {
+        open: (url: string) => void;
+      };
+    }
+    
+    const zeffyWindow = window as ZeffyWindow;
+    console.log('Zeffy modal function:', zeffyWindow.zf_modal);
+    console.log('Zeffy SDK:', zeffyWindow.zeffySDK);
     
     // Try to trigger Zeffy modal manually if the data attribute doesn't work
-    if (typeof window !== 'undefined' && (window as any).zf_modal) {
+    if (typeof window !== 'undefined' && zeffyWindow.zf_modal) {
       console.log('Opening Zeffy modal via zf_modal');
-      (window as any).zf_modal.open('https://www.zeffy.com/embed/donation-form/support-ukiah-senior-center?modal=true');
-    } else if (typeof window !== 'undefined' && (window as any).zeffySDK) {
+      zeffyWindow.zf_modal.open('https://www.zeffy.com/embed/donation-form/support-ukiah-senior-center?modal=true');
+    } else if (typeof window !== 'undefined' && zeffyWindow.zeffySDK) {
       console.log('Opening Zeffy modal via zeffySDK');
-      (window as any).zeffySDK.open('https://www.zeffy.com/embed/donation-form/support-ukiah-senior-center?modal=true');
+      zeffyWindow.zeffySDK.open('https://www.zeffy.com/embed/donation-form/support-ukiah-senior-center?modal=true');
     } else {
       console.log('Zeffy not available, opening in new tab');
       // Fallback to opening in new tab
