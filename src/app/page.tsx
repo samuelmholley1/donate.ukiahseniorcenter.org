@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import Image from 'next/image';
 import { ZeffyModal } from '@/components/ZeffyModal';
 import { PAYPAL_URL } from '@/lib/copy';
 
@@ -16,10 +17,23 @@ export default function Donate() {
 
   return (
     <>
-      <section className="mx-auto max-w-[640px]">
-        <div 
-          className="rounded-(--radius) bg-(--card) shadow-xl ring-1 ring-black/5 p-8 md:px-6 md:py-6 text-center relative overflow-hidden"
-        >
+      <div className="flex items-center justify-center min-h-[calc(100vh-120px)] py-12">
+        <section className="mx-auto max-w-[640px] w-full px-4">
+          {/* Logo */}
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/logo.svg"
+              alt="Ukiah Senior Center"
+              width={64}
+              height={64}
+              className="w-16 h-16"
+              priority
+            />
+          </div>
+
+          <div 
+            className="rounded-(--radius) bg-(--card) shadow-xl ring-1 ring-black/5 p-8 md:px-6 md:py-6 text-center relative overflow-hidden"
+          >
           {/* Radial gradient overlay */}
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(65%_50%_at_50%_0%,rgba(255,255,255,0.6),transparent_70%)]" />
           
@@ -90,7 +104,8 @@ export default function Donate() {
         <p className="mt-4 text-center text-[11px] text-neutral-500">
           Ukiah Senior Center • 499 Leslie St, Ukiah, CA 95482 • (707) 462-4343 • 501(c)3 • Tax ID# 23-7258082
         </p>
-      </section>
+        </section>
+      </div>
 
       {/* Zeffy Modal */}
       <ZeffyModal 
@@ -102,11 +117,4 @@ export default function Donate() {
       />
     </>
   );
-}
-
-// Type declaration for dataLayer
-declare global {
-  interface Window {
-    dataLayer?: unknown[];
-  }
 }
