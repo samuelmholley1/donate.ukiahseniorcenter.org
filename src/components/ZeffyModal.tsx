@@ -156,18 +156,42 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
           </svg>
         </button>
 
+        {/* Modal Header with Logo */}
+        <div className="mb-6 text-center border-b border-neutral-200 pb-6">
+          <Image
+            src="/logo.svg"
+            alt="Ukiah Senior Center"
+            width={48}
+            height={48}
+            className="w-12 h-12 mx-auto mb-2"
+            priority
+          />
+          <h3 className="text-lg font-semibold text-neutral-900">
+            Ukiah Senior Center
+          </h3>
+          <p className="text-sm text-neutral-600 mt-1">
+            Make Your Donation
+          </p>
+        </div>
+
         {/* Tip Instruction with Example Image */}
         <div className="mb-6 pb-6 border-b border-neutral-200">
-          <p className="text-sm text-neutral-700 mb-3 font-medium">
+          <p className="text-sm text-neutral-700 mb-4 font-medium">
             To avoid the optional fee, set the tip to $0 on the checkout page. It will look like this:
           </p>
-          <Image
-            src="/zero_tip.png"
-            alt="Example of setting tip to zero"
-            width={300}
-            height={150}
-            className="w-full max-w-[300px] rounded-lg border border-neutral-200"
-          />
+          <div className="flex justify-center">
+            <div className="p-4 bg-blue-50 rounded-lg border-2 border-blue-200">
+              <Image
+                src="/zero_tip.png"
+                alt="Example of setting tip to zero"
+                width={420}
+                height={210}
+                quality={95}
+                priority
+                className="rounded-md"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Iframe Container */}
