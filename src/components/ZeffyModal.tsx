@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { COPY, ZEFFY_EMBED_URL } from '@/lib/copy';
+import Image from 'next/image';
+import { ZEFFY_EMBED_URL } from '@/lib/copy';
 
 interface ZeffyModalProps {
   isOpen: boolean;
@@ -155,9 +156,18 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
           </svg>
         </button>
 
-        {/* Tip Instruction */}
-        <div className="text-xs text-neutral-600 mb-3">
-          {COPY.modalTipInstruction}
+        {/* Tip Instruction with Example Image */}
+        <div className="mb-6 pb-6 border-b border-neutral-200">
+          <p className="text-sm text-neutral-700 mb-3 font-medium">
+            To avoid the optional fee, set the tip to $0 on the checkout page. It will look like this:
+          </p>
+          <Image
+            src="/zero_tip.png"
+            alt="Example of setting tip to zero"
+            width={300}
+            height={150}
+            className="w-full max-w-[300px] rounded-lg border border-neutral-200"
+          />
         </div>
 
         {/* Iframe Container */}
