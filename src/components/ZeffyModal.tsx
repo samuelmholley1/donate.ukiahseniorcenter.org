@@ -155,11 +155,11 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
         {/* Modal Header with Logo */}
         <div className="mb-6 text-center border-b border-neutral-200 pb-6">
           <Image
-            src="/logo.svg"
+            src="/logo.png"
             alt="Ukiah Senior Center"
             width={48}
             height={48}
-            className="w-12 h-12 mx-auto mb-2"
+            className="w-12 h-12 mx-auto mb-2 object-contain"
             priority
           />
           <h3 className="text-lg font-semibold text-neutral-900">
