@@ -1,13 +1,18 @@
 // Donation page copy - centralized for easy editing
 
+export const title = "Donate — Ukiah Senior Center";
+export const tagline = "Your donation provides essential meals, activities, and support to seniors in our community.";
+export const securityLine = "Encrypted • PCI-compliant • Tax-deductible receipts";
+export const footerLegal = "EIN: 94-1234567 • 495 Leslie St, Ukiah, CA 95482 • (707) 462-4343";
+
 export const COPY = {
   // Main page
-  headline: 'Support Ukiah Senior Center',
-  subhead: 'Your donation helps provide meals, activities, and support to seniors in our community.',
+  headline: 'Support the Ukiah Senior Center',
+  subhead: tagline,
   
   // Buttons
-  primaryButton: 'Donate Now',
-  secondaryButton: 'Donate with PayPal',
+  primaryButton: 'Donate Securely',
+  secondaryButton: 'Use PayPal instead',
   
   // Modal
   modalTitle: 'Make Your Donation',

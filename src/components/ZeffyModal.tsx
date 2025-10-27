@@ -13,6 +13,7 @@ interface ZeffyModalProps {
 export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
   const [mounted, setMounted] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [hasLoaded, setHasLoaded] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
@@ -40,6 +41,11 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
 
   useEffect(() => {
     if (!isOpen) return;
+
+    // Lazy load the embed on first open
+    if (!hasLoaded) {
+      setHasLoaded(true);
+    }
 
     // Store the element that triggered the modal
     previousFocusRef.current = document.activeElement as HTMLElement;
@@ -73,7 +79,7 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
         previousFocusRef.current.focus();
       }
     };
-  }, [isOpen, logEvent, handleClose]);
+  }, [isOpen, logEvent, handleClose, hasLoaded]);
   useEffect(() => {
     if (!isOpen || !modalRef.current) return;
 
@@ -141,7 +147,7 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
           <button
             ref={closeButtonRef}
             onClick={handleClose}
-            className="p-2 rounded-lg hover:bg-slate-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="p-2 rounded-lg hover:bg-slate-100 transition-colors motion-reduce:transition-none focus:outline-none focus:ring-2 focus:ring-blue-500"
             aria-label="Close donation modal"
           >
             <svg className="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -164,21 +170,30 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
 
         {/* Iframe Container */}
         <div className="relative flex-1 bg-slate-50">
+          {/* Instruction Panel */}
+          <div className="p-4 bg-blue-50 border-b border-blue-200">
+            <p className="text-sm text-blue-800">
+              💡 Tip: During checkout, you can adjust or zero out the optional tip for the payment processor.
+            </p>
+          </div>
+          
           {isLoading && (
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="flex flex-col items-center space-y-4">
-                <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
+              <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin motion-reduce:animate-none"></div>
                 <p className="text-sm text-slate-600">Loading donation form...</p>
               </div>
             </div>
           )}
-          <iframe
-            src={ZEFFY_EMBED_URL}
-            className="w-full h-[80vh] sm:h-[70vh] border-0"
-            title="Zeffy donation form"
-            onLoad={() => setIsLoading(false)}
-            allow="payment"
-          />
+          {hasLoaded && (
+            <iframe
+              src={ZEFFY_EMBED_URL}
+              className="w-full h-[80vh] sm:h-[70vh] border-0"
+              title="Zeffy donation form"
+              onLoad={() => setIsLoading(false)}
+              allow="payment"
+            />
+          )}
         </div>
 
         {/* Modal Footer */}

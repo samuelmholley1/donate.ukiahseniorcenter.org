@@ -2,10 +2,23 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ToastProvider } from '@/components/Toast';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { title, tagline } from '@/lib/copy';
 
 export const metadata: Metadata = {
-  title: "Donate - Ukiah Senior Center",
-  description: "Support Ukiah Senior Center with a secure donation. Help provide meals, activities, and vital services to seniors in our community.",
+  metadataBase: new URL('https://donate.ukiahseniorcenter.org'),
+  title,
+  description: tagline,
+  openGraph: {
+    title,
+    description: tagline,
+    images: [{ url: '/og.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description: tagline,
+    images: ['/og.png'],
+  },
   manifest: '/site.webmanifest',
   icons: {
     icon: [
@@ -24,12 +37,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
-        <ToastProvider>
-          <ErrorBoundary>
-            {children}
-          </ErrorBoundary>
-        </ToastProvider>
+      <head>
+        <link rel="preconnect" href="https://www.zeffy.com" crossOrigin="" />
+      </head>
+      <body className="bg-neutral-50 antialiased">
+        <div className="max-w-[720px] mx-auto px-5">
+          <ToastProvider>
+            <ErrorBoundary>
+              {children}
+            </ErrorBoundary>
+          </ToastProvider>
+        </div>
       </body>
     </html>
   );
