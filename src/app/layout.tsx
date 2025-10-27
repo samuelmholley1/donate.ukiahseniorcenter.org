@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ToastProvider } from '@/components/Toast';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
+import SiteHeader from '@/components/SiteHeader';
+import SiteFooter from '@/components/SiteFooter';
 import { title, tagline } from '@/lib/copy';
 
 export const metadata: Metadata = {
@@ -40,12 +42,16 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://www.zeffy.com" crossOrigin="" />
       </head>
-      <body className="bg-neutral-50 antialiased">
-        <ToastProvider>
-          <ErrorBoundary>
-            {children}
-          </ErrorBoundary>
-        </ToastProvider>
+      <body className="min-h-screen flex flex-col bg-[#FAFAFA] antialiased">
+        <SiteHeader />
+        <main className="flex-1">
+          <ToastProvider>
+            <ErrorBoundary>
+              {children}
+            </ErrorBoundary>
+          </ToastProvider>
+        </main>
+        <SiteFooter />
       </body>
     </html>
   );

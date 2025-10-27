@@ -40,7 +40,7 @@ export default function Donate() {
   return (
     <>
       <div className="min-h-screen flex items-center justify-center py-12 px-4">
-        <div className="max-w-[520px] w-full mx-auto">
+        <div className="max-w-[520px] w-full">
           {/* Logo */}
           <div className="flex justify-center mb-8">
             <div className="relative">
