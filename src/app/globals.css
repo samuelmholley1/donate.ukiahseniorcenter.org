@@ -2,18 +2,16 @@
 
 /* Brand tokens aligned with ukiahseniorcenter.org */
 :root {
+  --teal: #2C7A7B;
+  --tealD: #25686A;
   --ink: #0B0B0B;
-  --copy: #444444;
+  --copy: #444;
   --mute: #6B7280;
-  --bg: #FAFAFA;
+  --bg: #F7FAF9;
   --card: #FFFFFF;
-  --accent: #1E3A8A;
-  --accent-hover: #1C357B;
-  --accent-alt: #2563EB;
-  --ring: #2563EB;
+  --ring: #1F9AA5;
   --border: #E5E7EB;
-  --radius: 12px;
-  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  --radius: 16px;
 }
 
 * {
@@ -26,7 +24,6 @@ html,
 body {
   background: var(--bg);
   color: var(--copy);
-  font-family: var(--font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -60,6 +57,6 @@ h6 {
 
 /* Selection color */
 ::selection {
-  background-color: var(--accent-alt);
+  background-color: var(--ring);
   color: white;
 }

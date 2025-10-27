@@ -4,7 +4,7 @@ import { ToastProvider } from '@/components/Toast';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
-import { title, tagline } from '@/lib/copy';
+import { title } from '@/lib/copy';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://donate.ukiahseniorcenter.org'),
@@ -42,14 +42,19 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://www.zeffy.com" crossOrigin="" />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#FAFAFA] antialiased">
+      <body className="min-h-screen flex flex-col antialiased">
         <SiteHeader />
         <main className="flex-1">
-          <ToastProvider>
-            <ErrorBoundary>
-              {children}
-            </ErrorBoundary>
-          </ToastProvider>
+          {/* Hero band with teal background */}
+          <div style={{ backgroundColor: 'color-mix(in srgb, var(--teal) 12%, white)' }}>
+            <div className="max-w-[960px] mx-auto px-5 py-16">
+              <ToastProvider>
+                <ErrorBoundary>
+                  {children}
+                </ErrorBoundary>
+              </ToastProvider>
+            </div>
+          </div>
         </main>
         <SiteFooter />
       </body>

@@ -123,7 +123,7 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
       className="fixed inset-0 z-50 grid place-items-center p-4"
       style={{ 
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        backdropFilter: typeof window !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'blur(4px)' : 'none'
+        backdropFilter: typeof window !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'blur(2px)' : 'none'
       }}
       onClick={handleOverlayClick}
       role="dialog"
@@ -133,11 +133,7 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
     >
       <div
         ref={modalRef}
-        className="max-w-[760px] w-[92vw] rounded-xl shadow-xl p-6"
-        style={{ 
-          backgroundColor: 'var(--card)',
-          borderRadius: 'var(--radius)'
-        }}
+        className="max-w-[760px] w-[92vw] rounded-(--radius) shadow-xl ring-1 ring-black/5 p-6 relative bg-(--card)"
       >
         {/* Visually hidden title for a11y */}
         <h2 id="donate-modal-title" className="sr-only">
@@ -176,20 +172,25 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
 
         {/* Tip Instruction with Example Image */}
         <div className="mb-6 pb-6 border-b border-neutral-200">
-          <p className="text-sm text-neutral-700 mb-4 font-medium">
-            To avoid the optional fee, set the tip to $0 on the checkout page. It will look like this:
-          </p>
-          <div className="flex justify-center">
-            <div className="p-4 bg-blue-50 rounded-lg border-2 border-blue-200">
-              <Image
-                src="/zero_tip.png"
-                alt="Example of setting tip to zero"
-                width={420}
-                height={210}
-                quality={95}
-                priority
-                className="rounded-md"
-              />
+          <div className="text-xs text-(--mute) mb-4">
+            Tip is optional. You can adjust or set it to $0 during checkout.
+          </div>
+          <div className="mb-6">
+            <p className="text-sm text-neutral-700 mb-4 font-medium">
+              To avoid the optional fee, set the tip to $0 on the checkout page. It will look like this:
+            </p>
+            <div className="flex justify-center">
+              <div className="p-4 bg-blue-50 rounded-lg border-2 border-blue-200">
+                <Image
+                  src="/zero_tip.png"
+                  alt="Example of setting tip to zero"
+                  width={420}
+                  height={210}
+                  quality={95}
+                  priority
+                  className="rounded-md"
+                />
+              </div>
             </div>
           </div>
         </div>

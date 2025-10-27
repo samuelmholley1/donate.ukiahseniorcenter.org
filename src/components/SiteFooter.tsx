@@ -1,7 +1,7 @@
 export default function SiteFooter() {
   return (
     <footer className="bg-black text-white text-sm mt-20 border-t border-gray-800">
-      <div className="max-w-[1200px] mx-auto px-5 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-[1200px] mx-auto px-5 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
         
         {/* Column 1: Contact Us */}
         <div>
@@ -65,13 +65,8 @@ export default function SiteFooter() {
           </ul>
         </div>
 
-        {/* Column 4: Sponsorship */}
-        <div>
-          <h3 className="font-semibold mb-3 text-white">Sponsorship</h3>
-          <div className="w-full max-w-[180px] rounded border border-gray-700 bg-gray-900 aspect-square flex items-center justify-center">
-            <p className="text-gray-500 text-xs text-center px-2">Sponsor Logo</p>
-          </div>
-        </div>
+        {/* Column 4: Sponsorship - Only render if data exists */}
+        {/* Sponsor data would be passed as prop; currently empty so block is hidden */}
 
       </div>
       <div className="border-t border-gray-800 py-4 text-center text-xs text-gray-500">
