@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { ZEFFY_EMBED_URL } from '@/lib/copy';
+import { COPY, ZEFFY_EMBED_URL } from '@/lib/copy';
 
 interface ZeffyModalProps {
   isOpen: boolean;
@@ -20,7 +20,6 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
   // Track analytics events
   const logEvent = useCallback((eventName: string) => {
     if (typeof window !== 'undefined') {
-      // For Google Analytics / GTM
       if (window.dataLayer) {
         window.dataLayer.push({ event: eventName });
       }
@@ -79,6 +78,7 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
       }
     };
   }, [isOpen, logEvent, handleClose, hasLoaded]);
+
   useEffect(() => {
     if (!isOpen || !modalRef.current) return;
 
@@ -119,46 +119,54 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
 
   const modalContent = (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 transition-opacity duration-300"
+      className="fixed inset-0 z-50 grid place-items-center p-4"
+      style={{ 
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        backdropFilter: typeof window !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'blur(4px)' : 'none'
+      }}
       onClick={handleOverlayClick}
-      aria-labelledby="modal-title"
       role="dialog"
       aria-modal="true"
+      aria-labelledby="donate-modal-title"
+      data-testid="donate-modal"
     >
       <div
         ref={modalRef}
-        className="relative bg-white rounded-lg shadow-xl w-[92vw] max-w-[720px] p-6 min-h-[580px] flex flex-col transform transition-all duration-300 ease-out motion-reduce:transform-none motion-reduce:transition-none"
-        style={{
-          transform: isOpen ? 'scale(1) translateY(0)' : 'scale(0.95) translateY(10px)',
-          opacity: isOpen ? 1 : 0,
+        className="max-w-[760px] w-[92vw] rounded-xl shadow-xl p-6"
+        style={{ 
+          backgroundColor: 'var(--card)',
+          borderRadius: 'var(--radius)'
         }}
       >
+        {/* Visually hidden title for a11y */}
+        <h2 id="donate-modal-title" className="sr-only">
+          Make Your Donation
+        </h2>
+
         {/* Close Button */}
         <button
           ref={closeButtonRef}
           onClick={handleClose}
-          className="absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-100 transition-colors motion-reduce:transition-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="absolute top-4 right-4 p-2 rounded-lg hover:bg-neutral-100 transition-colors focus:outline-none focus:ring-2"
           aria-label="Close donation modal"
         >
-          <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-6 h-6 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
 
         {/* Tip Instruction */}
-        <div className="p-4 bg-gray-50 border-b border-gray-200 rounded-t-lg">
-          <p className="text-sm text-gray-700">
-            Tip is optional. You can adjust or set it to $0 during checkout.
-          </p>
+        <div className="text-xs text-neutral-600 mb-3">
+          {COPY.modalTipInstruction}
         </div>
 
         {/* Iframe Container */}
-        <div className="relative flex-1 bg-gray-50 rounded-b-lg overflow-hidden">
+        <div className="relative min-h-[600px] rounded-lg overflow-hidden" style={{ backgroundColor: 'var(--bg)' }}>
           {isLoading && (
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="flex flex-col items-center space-y-4">
-                <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin motion-reduce:animate-none"></div>
-                <p className="text-sm text-gray-600">Loading donation form...</p>
+                <div className="w-12 h-12 border-4 border-neutral-200 rounded-full animate-spin" style={{ borderTopColor: 'var(--accent)' }}></div>
+                <p className="text-sm text-neutral-600">Loading donation form...</p>
               </div>
             </div>
           )}
@@ -166,9 +174,11 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
             <iframe
               src={ZEFFY_EMBED_URL}
               className="w-full h-full border-0"
+              style={{ minHeight: '600px' }}
               title="Zeffy donation form"
               onLoad={() => setIsLoading(false)}
               allow="payment"
+              data-testid="zeffy-frame"
             />
           )}
         </div>

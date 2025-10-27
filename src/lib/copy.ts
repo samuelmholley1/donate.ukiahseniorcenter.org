@@ -3,7 +3,7 @@
 export const title = "Donate — Ukiah Senior Center";
 export const tagline = "Your donation provides essential meals, activities, and support to seniors in our community.";
 export const securityLine = "Encrypted • PCI-compliant • Tax-deductible receipts";
-export const footerLegal = "EIN: 94-1234567 • 495 Leslie St, Ukiah, CA 95482 • (707) 462-4343";
+export const footerLegal = "Ukiah Senior Center • 499 Leslie St, Ukiah, CA 95482 • (707) 462-4343 • 501(c)3 • Tax ID# 23-7258082";
 
 export const COPY = {
   // Main page
@@ -16,7 +16,7 @@ export const COPY = {
   
   // Modal
   modalTitle: 'Make Your Donation',
-  modalProcessingInfo: 'During checkout, you may see an optional tip for the payment processor. This tip goes to Zeffy, not to our organization. You can set it to $0 or adjust it as you prefer.',
+  modalTipInstruction: 'Tip is optional. You can adjust or set it to $0 during checkout.',
   closeButton: 'Close',
   
   // Footer

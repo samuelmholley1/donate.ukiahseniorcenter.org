@@ -7,16 +7,16 @@ import { title, tagline } from '@/lib/copy';
 export const metadata: Metadata = {
   metadataBase: new URL('https://donate.ukiahseniorcenter.org'),
   title,
-  description: tagline,
+  description: "Your donation supports meals, activities, and essential services for seniors and caregivers in our community.",
   openGraph: {
     title,
-    description: tagline,
+    description: "Your donation supports meals, activities, and essential services for seniors and caregivers in our community.",
     images: [{ url: '/og.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title,
-    description: tagline,
+    description: "Your donation supports meals, activities, and essential services for seniors and caregivers in our community.",
     images: ['/og.png'],
   },
   manifest: '/site.webmanifest',
