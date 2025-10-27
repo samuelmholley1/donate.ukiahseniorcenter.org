@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import Image from 'next/image';
-import { COPY, ZEFFY_EMBED_URL } from '@/lib/copy';
+import { ZEFFY_EMBED_URL } from '@/lib/copy';
 
 interface ZeffyModalProps {
   isOpen: boolean;
@@ -120,7 +119,7 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
 
   const modalContent = (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 transition-opacity duration-300"
       onClick={handleOverlayClick}
       aria-labelledby="modal-title"
       role="dialog"
@@ -128,79 +127,50 @@ export function ZeffyModal({ isOpen, onClose }: ZeffyModalProps) {
     >
       <div
         ref={modalRef}
-        className="relative bg-white rounded-2xl shadow-2xl w-full max-w-[960px] max-h-[95vh] flex flex-col overflow-hidden"
+        className="relative bg-white rounded-lg shadow-xl w-[92vw] max-w-[720px] p-6 min-h-[580px] flex flex-col transform transition-all duration-300 ease-out motion-reduce:transform-none motion-reduce:transition-none"
+        style={{
+          transform: isOpen ? 'scale(1) translateY(0)' : 'scale(0.95) translateY(10px)',
+          opacity: isOpen ? 1 : 0,
+        }}
       >
-        {/* Modal Header with Logo */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200">
-          <div className="flex items-center gap-4">
-            <Image
-              src="/logo.png"
-              alt="Ukiah Senior Center"
-              width={48}
-              height={48}
-              className="rounded-lg"
-            />
-            <h2 id="modal-title" className="text-2xl font-semibold text-slate-900">
-              {COPY.modalTitle}
-            </h2>
-          </div>
-          <button
-            ref={closeButtonRef}
-            onClick={handleClose}
-            className="p-2 rounded-lg hover:bg-slate-100 transition-colors motion-reduce:transition-none focus:outline-none focus:ring-2 focus:ring-blue-500"
-            aria-label="Close donation modal"
-          >
-            <svg className="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
+        {/* Close Button */}
+        <button
+          ref={closeButtonRef}
+          onClick={handleClose}
+          className="absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-100 transition-colors motion-reduce:transition-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+          aria-label="Close donation modal"
+        >
+          <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
 
-        {/* Processing Info - Appears only in modal */}
-        <div className="px-6 py-4 bg-amber-50 border-b border-amber-200">
-          <div className="flex items-start space-x-3">
-            <svg className="w-5 h-5 text-amber-600 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-            </svg>
-            <p className="text-sm text-amber-800 leading-relaxed">
-              {COPY.modalProcessingInfo}
-            </p>
-          </div>
+        {/* Tip Instruction */}
+        <div className="p-4 bg-gray-50 border-b border-gray-200 rounded-t-lg">
+          <p className="text-sm text-gray-700">
+            Tip is optional. You can adjust or set it to $0 during checkout.
+          </p>
         </div>
 
         {/* Iframe Container */}
-        <div className="relative flex-1 bg-slate-50">
-          {/* Instruction Panel */}
-          <div className="p-4 bg-blue-50 border-b border-blue-200">
-            <p className="text-sm text-blue-800">
-              💡 Tip: During checkout, you can adjust or zero out the optional tip for the payment processor.
-            </p>
-          </div>
-          
+        <div className="relative flex-1 bg-gray-50 rounded-b-lg overflow-hidden">
           {isLoading && (
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="flex flex-col items-center space-y-4">
-              <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin motion-reduce:animate-none"></div>
-                <p className="text-sm text-slate-600">Loading donation form...</p>
+                <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin motion-reduce:animate-none"></div>
+                <p className="text-sm text-gray-600">Loading donation form...</p>
               </div>
             </div>
           )}
           {hasLoaded && (
             <iframe
               src={ZEFFY_EMBED_URL}
-              className="w-full h-[80vh] sm:h-[70vh] border-0"
+              className="w-full h-full border-0"
               title="Zeffy donation form"
               onLoad={() => setIsLoading(false)}
               allow="payment"
             />
           )}
-        </div>
-
-        {/* Modal Footer */}
-        <div className="px-6 py-3 bg-slate-50 border-t border-slate-200 text-center">
-          <p className="text-xs text-slate-600">
-            🔒 Secure donation processing by Zeffy
-          </p>
         </div>
       </div>
     </div>

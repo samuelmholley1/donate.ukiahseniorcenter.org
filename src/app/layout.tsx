@@ -41,7 +41,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.zeffy.com" crossOrigin="" />
       </head>
       <body className="bg-neutral-50 antialiased">
-        <div className="max-w-[720px] mx-auto px-5">
+        <div className="max-w-[720px] mx-auto px-5 pt-20">
           <ToastProvider>
             <ErrorBoundary>
               {children}
