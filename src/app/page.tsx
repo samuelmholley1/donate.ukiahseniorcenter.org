@@ -41,14 +41,14 @@ export default function Donate() {
           
           {/* Mission Statement Card */}
           <div className="bg-white rounded-lg shadow-[0px_12px_18px_-6px_rgba(0,0,0,0.15)] p-8 md:p-10 mb-8">
-            <h2 className="text-3xl font-['Jost',sans-serif] font-bold text-[#427d78] mb-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-['Jost',sans-serif] font-bold text-[#427d78] mb-6 text-center">
               Enhancing Quality of Life for Seniors
             </h2>
             <p className="text-lg text-[#666] font-['Bitter',serif] leading-relaxed text-center">
-              For more than 50 years, we've been serving our seniors and disabled community. Every donation helps us continue this vital mission.
+              For more than 50 years, we&apos;ve been serving our seniors and disabled community. Every donation helps us continue this vital mission.
             </p>
             <p className="text-lg text-[#666] font-['Bitter',serif] leading-relaxed text-center">
-              For more than 50 years, we've been serving our seniors and disabled community. Every donation helps us continue this vital mission.
+              For more than 50 years, we&apos;ve been serving our seniors and disabled community. Every donation helps us continue this vital mission.
             </p>
           </div>
 

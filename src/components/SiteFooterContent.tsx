@@ -24,7 +24,7 @@ export function SiteFooterContent() {
           <div>
             <h2 className="text-xl font-['Jost',sans-serif] font-bold text-[#427d78] mb-4">About Us</h2>
             <p className="text-[#666] font-['Bitter',serif] text-sm leading-relaxed">
-              The Ukiah Senior Center's mission is to enhance and improve the quality of life for all Ukiah seniors, their families, and their caregivers, and to enable seniors to remain as independent as possible for as long as possible.
+              The Ukiah Senior Center&apos;s mission is to enhance and improve the quality of life for all Ukiah seniors, their families, and their caregivers, and to enable seniors to remain as independent as possible for as long as possible.
             </p>
             <div className="mt-4">
               <a 
