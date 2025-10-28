@@ -1,20 +1,9 @@
 'use client';
 
-import { useState, useRef } from 'react';
 import Image from 'next/image';
-import { ZeffyModal } from '@/components/ZeffyModal';
 import { PAYPAL_URL } from '@/lib/copy';
 
 export default function Donate() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const donateButtonRef = useRef<HTMLButtonElement>(null);
-
-  const handleZeffyClick = () => {
-    setIsLoading(true);
-    setIsModalOpen(true);
-  };
-
   return (
     <>
       <section className="flex flex-col items-center justify-center min-h-screen py-16 px-4">
@@ -41,19 +30,18 @@ export default function Donate() {
               Your donation provides essential meals, activities, and support to seniors in our community.
             </p>
             
-            <div className="space-y-4 flex flex-col items-center mb-6">
-              <button 
-                ref={donateButtonRef}
-                onClick={handleZeffyClick}
-                disabled={isLoading}
-                data-testid="donate-open"
-                className="h-12 w-full max-w-[320px] rounded-md bg-(--teal) text-white font-semibold text-lg hover:bg-(--tealD) focus:outline-none focus:ring-2 focus:ring-(--ring) inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-md"
-              >
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                  <path d="M12 2a5 5 0 00-5 5v3H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2h-1V7a5 5 0 00-5-5zm-3 8V7a3 3 0 016 0v3H9z"/>
-                </svg>
-                Donate Securely
-              </button>
+            {/* Zeffy Embed */}
+            <div className="mb-6">
+              <div style={{position:'relative',overflow:'hidden',height:'450px',width:'100%'}}>
+                <iframe 
+                  title='Donation form powered by Zeffy' 
+                  style={{position: 'absolute', border: 0, top:0,left:0,bottom:0,right:0,width:'100%',height:'100%'}} 
+                  src='https://www.zeffy.com/embed/donation-form/support-ukiah-senior-center'
+                ></iframe>
+              </div>
+            </div>
+            
+            <div className="mb-6">
               <a 
                 href={PAYPAL_URL}
                 className="h-11 w-full max-w-[320px] rounded-md border-2 border-(--border) text-(--ink) hover:bg-gray-50 inline-flex items-center justify-center text-base font-medium focus:outline-none focus:ring-2 focus:ring-(--ring) transition-colors"
@@ -91,15 +79,6 @@ export default function Donate() {
           </p>
         </div>
       </section>
-
-      {/* Zeffy Modal */}
-      <ZeffyModal 
-        isOpen={isModalOpen} 
-        onClose={() => {
-          setIsModalOpen(false);
-          setIsLoading(false);
-        }} 
-      />
     </>
   );
 }

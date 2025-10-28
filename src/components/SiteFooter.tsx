@@ -1,7 +1,7 @@
 export default function SiteFooter() {
   return (
     <footer className="bg-black text-white text-sm mt-20 border-t border-gray-800">
-      <div className="max-w-[1200px] mx-auto px-5 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-[1200px] mx-auto px-5 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         
         {/* Column 1: Contact Us */}
         <div>
@@ -65,8 +65,15 @@ export default function SiteFooter() {
           </ul>
         </div>
 
-        {/* Column 4: Sponsorship - Only render if data exists */}
-        {/* Sponsor data would be passed as prop; currently empty so block is hidden */}
+        {/* Column 4: Sponsorship */}
+        <div>
+          <h3 className="font-semibold mb-3 text-white">Sponsorship</h3>
+          <img 
+            src="https://ukiahseniorcenter.org/wp-content/uploads/2025/04/Helen-and-Company-Ukiah-Seniors.jpg" 
+            alt="Sponsor: Helen and Company" 
+            className="max-w-full h-auto"
+          />
+        </div>
 
       </div>
       <div className="border-t border-gray-800 py-4 text-center text-xs text-gray-500">
