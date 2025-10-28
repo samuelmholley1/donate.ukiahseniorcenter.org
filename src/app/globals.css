@@ -1,17 +1,20 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Bitter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-/* Brand tokens aligned with ukiahseniorcenter.org */
+/* Design system tokens matching ukiahseniorcenter.org */
 :root {
-  --teal: #2C7A7B;
-  --tealD: #25686A;
-  --ink: #0B0B0B;
-  --copy: #1a1a1a; /* Darkened for better contrast (was #444) */
-  --mute: #4a5568; /* Darkened for better contrast (was #6B7280) */
-  --bg: #F7FAF9;
+  --teal: #427d78;
+  --tealHover: #5eb3a1;
+  --tealDark: #25686A;
+  --ink: #000000;
+  --copy: #666666;
+  --mute: #6B7280;
+  --bg: #fafbff;
   --card: #FFFFFF;
-  --ring: #1F9AA5;
+  --ring: #427d78;
   --border: #E5E7EB;
-  --radius: 16px;
+  --radius: 8px;
+  --shadow: 0px 12px 18px -6px rgba(0,0,0,0.15);
 }
 
 * {
@@ -24,10 +27,11 @@ html,
 body {
   background: var(--bg);
   color: var(--copy);
+  font-family: 'Bitter', Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 16px; /* Base font size for better readability */
-  line-height: 1.6; /* Improved line height for seniors */
 }
 
 h1,
@@ -37,9 +41,10 @@ h4,
 h5,
 h6 {
   color: var(--ink);
-  letter-spacing: -0.01em;
+  font-family: 'Jost', Helvetica, Arial, Lucida, sans-serif;
   font-weight: 700;
-  line-height: 1.3;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 /* Links - ensure sufficient contrast and larger click targets */
@@ -52,7 +57,7 @@ a {
 
 a:hover,
 a:focus {
-  color: var(--tealD);
+  color: var(--tealHover);
   text-decoration-thickness: 2px;
 }
 
@@ -87,6 +92,34 @@ a[role="button"]:focus-visible {
   color: white;
 }
 
+/* Card styles matching homepage */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+}
+
+/* Button styles matching homepage */
+.btn-primary {
+  background-color: var(--teal);
+  color: var(--card);
+  border: 2px solid var(--teal);
+  padding: 0.75rem 1.5rem;
+  border-radius: 3px;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  transition: all 300ms ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--tealHover);
+  border-color: var(--tealHover);
+}
+
 /* Ensure minimum touch target size for mobile (48x48px recommended by WCAG) */
 @media (max-width: 768px) {
   button,
@@ -107,3 +140,4 @@ a[role="button"]:focus-visible {
     --border: #000000;
   }
 }
+
