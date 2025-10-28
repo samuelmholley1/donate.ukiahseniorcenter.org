@@ -43,20 +43,15 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.zeffy.com" crossOrigin="" />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
-        <SiteHeader />
-        <main className="flex-1">
-          {/* Hero band with teal background */}
-          <div style={{ backgroundColor: 'color-mix(in srgb, var(--teal) 12%, white)' }}>
-            <div className="max-w-[960px] mx-auto px-5 py-16">
-              <ToastProvider>
-                <ErrorBoundary>
-                  {children}
-                </ErrorBoundary>
-              </ToastProvider>
-            </div>
-          </div>
-        </main>
-        <SiteFooter />
+        <ToastProvider>
+          <ErrorBoundary>
+            <SiteHeader />
+            <main className="flex-1 bg-white">
+              {children}
+            </main>
+            <SiteFooter />
+          </ErrorBoundary>
+        </ToastProvider>
       </body>
     </html>
   );

@@ -3,22 +3,24 @@ import Image from "next/image";
 
 export default function SiteHeader() {
   return (
-    <header className="bg-[#2C7A7B] text-white h-16 flex items-center border-b border-[#256c6f]">
-      <div className="max-w-[1200px] mx-auto px-5 flex w-full items-center justify-between">
+    <header className="bg-[#2C7A7B] text-white h-18 flex items-center border-b border-[#256c6f]">
+      <div className="max-w-[1200px] mx-auto px-5 py-4 flex w-full items-center justify-between">
         {/* Left: Logo */}
-        <Link href="https://ukiahseniorcenter.org" className="flex items-center gap-2">
+        <Link href="https://ukiahseniorcenter.org" className="flex items-center gap-3">
           <Image
             src="/logo.png"
             alt="Ukiah Senior Center Logo"
-            width={40}
-            height={40}
-            className="rounded-full"
+            width={50}
+            height={50}
+            className="object-contain"
           />
-          <span className="text-sm font-medium hidden sm:inline">Ukiah Senior Center</span>
+          <span className="text-base font-semibold hidden sm:inline">
+            Ukiah Senior Center
+          </span>
         </Link>
 
         {/* Center: Navigation */}
-        <nav className="hidden md:flex items-center gap-5 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           <Link href="https://ukiahseniorcenter.org" className="hover:text-gray-100 transition-colors">
             Home
           </Link>
@@ -48,7 +50,8 @@ export default function SiteHeader() {
         {/* Right: Donate button */}
         <Link
           href="/"
-          className="bg-white text-[#2C7A7B] font-semibold px-4 py-2 rounded hover:bg-gray-100 text-sm transition-colors"
+          className="bg-white font-semibold px-6 py-2 rounded text-sm transition-colors shadow-md"
+          style={{ color: 'var(--teal)' }}
         >
           Donate Now
         </Link>
