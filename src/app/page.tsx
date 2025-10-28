@@ -1,9 +1,13 @@
 'use client';
 
 import Image from 'next/image';
+import { useState } from 'react';
 import { PAYPAL_URL } from '@/lib/copy';
+import LoadingStates from '@/components/LoadingStates';
 
 export default function Donate() {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <>
       <section className="flex flex-col items-center justify-center min-h-screen py-16 px-4" aria-label="Donation page">
@@ -60,11 +64,24 @@ export default function Donate() {
               <h2 className="text-2xl font-bold mb-4" style={{fontSize: 'clamp(1.5rem, 3vw, 2rem)'}}>
                 Donation Form
               </h2>
-              <div style={{position:'relative',overflow:'hidden',height:'450px',width:'100%'}} role="region" aria-label="Zeffy donation form">
+              <div className="relative" style={{position:'relative',overflow:'hidden',height:'450px',width:'100%'}} role="region" aria-label="Zeffy donation form">
+                {isLoading && (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-50 rounded-lg z-10">
+                    <LoadingStates size="lg" />
+                    <p className="mt-4 text-lg text-gray-600 font-medium">Loading donation form...</p>
+                    <div className="mt-6 w-full max-w-md space-y-3 px-6">
+                      <div className="h-12 bg-gray-200 rounded-lg animate-pulse"></div>
+                      <div className="h-12 bg-gray-200 rounded-lg animate-pulse"></div>
+                      <div className="h-12 bg-gray-200 rounded-lg animate-pulse"></div>
+                      <div className="h-24 bg-gray-200 rounded-lg animate-pulse"></div>
+                    </div>
+                  </div>
+                )}
                 <iframe 
                   title='Donation form powered by Zeffy - use this form to make a secure donation to Ukiah Senior Center' 
                   style={{position: 'absolute', border: 0, top:0,left:0,bottom:0,right:0,width:'100%',height:'100%'}} 
                   src='https://www.zeffy.com/embed/donation-form/support-ukiah-senior-center'
+                  onLoad={() => setIsLoading(false)}
                 ></iframe>
               </div>
             </div>
