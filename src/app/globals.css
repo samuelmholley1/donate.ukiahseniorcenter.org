@@ -5,8 +5,8 @@
   --teal: #2C7A7B;
   --tealD: #25686A;
   --ink: #0B0B0B;
-  --copy: #444;
-  --mute: #6B7280;
+  --copy: #1a1a1a; /* Darkened for better contrast (was #444) */
+  --mute: #4a5568; /* Darkened for better contrast (was #6B7280) */
   --bg: #F7FAF9;
   --card: #FFFFFF;
   --ring: #1F9AA5;
@@ -26,6 +26,8 @@ body {
   color: var(--copy);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px; /* Base font size for better readability */
+  line-height: 1.6; /* Improved line height for seniors */
 }
 
 h1,
@@ -36,12 +38,36 @@ h5,
 h6 {
   color: var(--ink);
   letter-spacing: -0.01em;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
-/* Focus styles - Accessible */
+/* Links - ensure sufficient contrast and larger click targets */
+a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover,
+a:focus {
+  color: var(--tealD);
+  text-decoration-thickness: 2px;
+}
+
+/* Focus styles - More visible for accessibility */
 :focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Button focus styles */
+button:focus-visible,
+a[role="button"]:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
 }
 
 /* Reduced motion support */
@@ -59,4 +85,25 @@ h6 {
 ::selection {
   background-color: var(--ring);
   color: white;
+}
+
+/* Ensure minimum touch target size for mobile (48x48px recommended by WCAG) */
+@media (max-width: 768px) {
+  button,
+  a {
+    min-height: 48px;
+    min-width: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --copy: #000000;
+    --mute: #000000;
+    --border: #000000;
+  }
 }

@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function SiteFooter() {
   return (
     <footer className="bg-black text-white text-sm mt-20 border-t border-gray-800">
@@ -68,10 +70,13 @@ export default function SiteFooter() {
         {/* Column 4: Sponsorship */}
         <div>
           <h3 className="font-semibold mb-3 text-white">Sponsorship</h3>
-          <img 
+          <Image 
             src="https://ukiahseniorcenter.org/wp-content/uploads/2025/04/Helen-and-Company-Ukiah-Seniors.jpg" 
             alt="Sponsor: Helen and Company" 
+            width={200}
+            height={100}
             className="max-w-full h-auto"
+            unoptimized
           />
         </div>
 
