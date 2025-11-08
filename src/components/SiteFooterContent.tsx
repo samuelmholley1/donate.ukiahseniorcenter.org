@@ -1,8 +1,8 @@
 export function SiteFooterContent() {
   return (
     <footer className="bg-[#fafbff] border-t border-gray-200">
-      <div className="max-w-[1080px] mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container" style={{ paddingBlock: 'var(--space-6)' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: 'var(--space-5)' }}>
           {/* Contact Us */}
           <div>
             <h2 className="text-xl font-['Jost',sans-serif] font-bold text-[#427d78] mb-4">Contact Us</h2>
@@ -64,7 +64,7 @@ export function SiteFooterContent() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-gray-200">
+        <div style={{ marginTop: 'var(--space-6)', paddingTop: 'var(--space-5)' }} className="border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-[#666] font-['Bitter',serif]">
             <p>Copyright © 2025 Ukiah Senior Center. All rights reserved.</p>
             <p className="mt-2 md:mt-0">Site By <a href="https://mendowebdesign.com" target="_blank" rel="noopener noreferrer" className="text-[#427d78] hover:text-[#5eb3a1] transition-colors">Mendo Web Design</a></p>
