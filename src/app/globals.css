@@ -3,6 +3,7 @@
 
 /* Design system tokens matching ukiahseniorcenter.org */
 :root {
+  /* Colors */
   --teal: #427d78;
   --tealHover: #5eb3a1;
   --tealDark: #25686A;
@@ -13,8 +14,33 @@
   --card: #FFFFFF;
   --ring: #427d78;
   --border: #E5E7EB;
-  --radius: 8px;
-  --shadow: 0px 12px 18px -6px rgba(0,0,0,0.15);
+  
+  /* Spacing scale */
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  
+  /* Layout */
+  --container-max-width: 1140px;
+  --container-padding: 24px;
+  --container-padding-mobile: 16px;
+  
+  /* Border radius */
+  --radius: 10px;
+  --radius-sm: 6px;
+  
+  /* Shadows */
+  --shadow: 0 6px 18px rgba(0,0,0,0.06);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
+  
+  /* Grid */
+  --grid-gap: 24px;
+  --grid-gap-mobile: 16px;
 }
 
 * {
@@ -45,6 +71,40 @@ h6 {
   font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.2;
+}
+
+h1 {
+  line-height: 1.15;
+  margin: var(--space-5) 0 var(--space-3);
+}
+
+h2 {
+  line-height: 1.25;
+  margin: var(--space-4) 0 var(--space-2);
+}
+
+h3 {
+  line-height: 1.3;
+  margin: var(--space-3) 0 var(--space-2);
+}
+
+p {
+  margin-bottom: var(--space-3);
+  line-height: 1.7;
+}
+
+/* Container system */
+.container {
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-inline: var(--container-padding);
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding-inline: var(--container-padding-mobile);
+  }
 }
 
 /* Links - ensure sufficient contrast and larger click targets */
@@ -97,7 +157,33 @@ a[role="button"]:focus-visible {
   background: var(--card);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 2rem;
+  padding: 24px;
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 28px;
+  }
+}
+
+/* Grid system */
+.grid-cards {
+  display: grid;
+  gap: var(--grid-gap-mobile);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid-cards {
+    gap: var(--grid-gap);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-cards.three-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* Button styles matching homepage */
