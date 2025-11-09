@@ -51,11 +51,31 @@ export default function Donate() {
             </p>
           </div>
 
-          {/* Quick Tip Notice */}
-          <div className="bg-blue-50 border-l-4 border-blue-400 rounded p-4" style={{ marginBottom: 'var(--space-4)', maxWidth: '800px', marginInline: 'auto' }}>
-            <p className="text-sm md:text-base text-blue-900 font-['Bitter',serif]" style={{ marginBottom: 0, lineHeight: '1.6' }}>
-              <strong>💡 Tip:</strong> When prompted, set Zeffy tip to <strong>$0</strong> so 100% goes to seniors.
+          {/* Important Tip Notice */}
+          <div className="bg-blue-50 border-2 border-blue-400 rounded-lg shadow-md" style={{ padding: 'var(--space-5)', marginBottom: 'var(--space-6)' }}>
+            <h2 className="text-3xl md:text-4xl font-['Jost',sans-serif] font-bold text-blue-900 text-center" style={{ marginBottom: 'var(--space-4)', lineHeight: '1.3' }}>
+              💡 Important: Set Zeffy Tip to $0
+            </h2>
+            <p className="text-base md:text-lg text-blue-900 font-['Bitter',serif] text-center" style={{ marginBottom: 'var(--space-5)', maxWidth: '880px', marginInline: 'auto', lineHeight: '1.8' }}>
+              When you fill out the donation form below, Zeffy will ask if you want to leave a tip.
+              <strong className="font-bold"> Please set this tip amount to $0</strong> so 100% of your donation goes directly to the Ukiah Senior Center.
             </p>
+            <div className="bg-white rounded-lg border-2 border-blue-400" style={{ padding: 'var(--space-4)', maxWidth: '850px', marginInline: 'auto' }}>
+              <div style={{ position: 'relative', width: '100%', maxWidth: '100%', marginInline: 'auto' }}>
+                <Image
+                  src="/zero_tip.png"
+                  alt="Screenshot showing how to set Zeffy tip to zero during checkout"
+                  width={525}
+                  height={263}
+                  className="rounded"
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  quality={95}
+                />
+              </div>
+              <p className="text-sm md:text-base text-gray-900 text-center font-['Bitter',serif] font-semibold" style={{ marginTop: 'var(--space-3)', marginBottom: 0, lineHeight: '1.6' }}>
+                Look for the tip section and click the custom amount to enter $0
+              </p>
+            </div>
           </div>
 
           {/* Donation Form Card */}
