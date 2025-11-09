@@ -15,7 +15,7 @@ export default function Donate() {
       <SiteNavigation />
       
       {/* Hero Section */}
-      <section className="relative bg-[#427d78] overflow-hidden" style={{ paddingBlock: '40px' }} aria-label="Donation page hero">
+      <section className="relative bg-[#427d78] overflow-hidden" style={{ paddingBlock: '48px' }} aria-label="Donation page hero">
         <div className="absolute inset-0 opacity-20">
           <Image
             src="https://ukiahseniorcenter.org/wp-content/uploads/2024/07/ukiah-senior-center-banner-image.jpg"
@@ -26,11 +26,11 @@ export default function Donate() {
           />
         </div>
         <div className="container relative z-10">
-          <div className="text-center" style={{ maxWidth: '760px', marginInline: 'auto' }}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-['Jost',sans-serif] font-bold text-white" style={{ lineHeight: '1.15', marginBottom: 'var(--space-4)' }}>
+          <div className="text-center" style={{ maxWidth: '860px', marginInline: 'auto' }}>
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-['Jost',sans-serif] font-bold text-white" style={{ lineHeight: '1.15', marginBottom: 'var(--space-5)' }}>
               Support the Ukiah Senior Center
             </h1>
-            <p className="text-xl md:text-2xl text-white/95 font-['Bitter',serif]" style={{ lineHeight: '1.35' }}>
+            <p className="text-xl md:text-2xl lg:text-3xl text-white/95 font-['Bitter',serif]" style={{ lineHeight: '1.5', fontWeight: '500' }}>
               Your donation provides essential meals, activities, and support to seniors in our community.
             </p>
           </div>
@@ -53,23 +53,26 @@ export default function Donate() {
 
           {/* Important Tip Notice */}
           <div className="bg-blue-50 border-2 border-blue-400 rounded-lg shadow-md" style={{ padding: 'var(--space-5)', marginBottom: 'var(--space-6)' }}>
-            <h2 className="text-2xl md:text-3xl font-['Jost',sans-serif] font-bold text-blue-900 text-center" style={{ marginBottom: 'var(--space-4)' }}>
+            <h2 className="text-3xl md:text-4xl font-['Jost',sans-serif] font-bold text-blue-900 text-center" style={{ marginBottom: 'var(--space-4)', lineHeight: '1.3' }}>
               💡 Important: Set Zeffy Tip to $0
             </h2>
-            <p className="text-base md:text-lg text-blue-900 font-['Bitter',serif] text-center" style={{ marginBottom: 'var(--space-5)', maxWidth: '880px', marginInline: 'auto' }}>
+            <p className="text-lg md:text-xl text-blue-900 font-['Bitter',serif] text-center" style={{ marginBottom: 'var(--space-5)', maxWidth: '920px', marginInline: 'auto', lineHeight: '1.8' }}>
               When you fill out the donation form below, Zeffy will ask if you want to leave a tip. 
               <strong className="font-bold"> Please set this tip amount to $0</strong> so 100% of your donation goes directly to the Ukiah Senior Center.
             </p>
             <div className="bg-white rounded-lg border-2 border-blue-400" style={{ padding: 'var(--space-4)', maxWidth: '680px', marginInline: 'auto' }}>
-              <Image
-                src="/zero_tip.png"
-                alt="Screenshot showing how to set Zeffy tip to zero during checkout"
-                width={420}
-                height={210}
-                quality={95}
-                className="mx-auto rounded"
-              />
-              <p className="text-sm md:text-base text-gray-900 text-center font-['Bitter',serif] font-semibold" style={{ marginTop: 'var(--space-3)', marginBottom: 0 }}>
+              <div style={{ position: 'relative', width: '100%', maxWidth: '100%', marginInline: 'auto' }}>
+                <Image
+                  src="/zero_tip.png"
+                  alt="Screenshot showing how to set Zeffy tip to zero during checkout"
+                  width={420}
+                  height={210}
+                  quality={95}
+                  className="rounded"
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                />
+              </div>
+              <p className="text-sm md:text-base text-gray-900 text-center font-['Bitter',serif] font-semibold" style={{ marginTop: 'var(--space-3)', marginBottom: 0, lineHeight: '1.6' }}>
                 Look for the tip section and click the custom amount to enter $0
               </p>
             </div>
@@ -77,7 +80,7 @@ export default function Donate() {
             
           {/* Donation Form Card */}
           <div className="card" style={{ marginBottom: 'var(--space-6)' }}>
-            <h2 className="text-3xl md:text-4xl font-['Jost',sans-serif] font-bold text-[#427d78] text-center" style={{ marginBottom: 'var(--space-5)' }}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-['Jost',sans-serif] font-bold text-[#427d78] text-center" style={{ marginBottom: 'var(--space-5)' }}>
               Make Your Donation
             </h2>
             
@@ -105,16 +108,16 @@ export default function Donate() {
 
           {/* Alternative Payment Method */}
           <div className="card text-center" style={{ marginBottom: 'var(--space-6)' }}>
-            <h3 className="text-2xl md:text-3xl font-['Jost',sans-serif] font-bold text-[#427d78]" style={{ marginBottom: 'var(--space-3)' }}>
+            <h3 className="text-3xl md:text-4xl font-['Jost',sans-serif] font-bold text-[#427d78]" style={{ marginBottom: 'var(--space-4)' }}>
               Prefer PayPal?
             </h3>
-            <p className="text-base md:text-lg text-[#666] font-['Bitter',serif]" style={{ marginBottom: 'var(--space-5)', maxWidth: '640px', marginInline: 'auto' }}>
+            <p className="text-lg md:text-xl text-[#666] font-['Bitter',serif]" style={{ marginBottom: 'var(--space-5)', maxWidth: '700px', marginInline: 'auto', lineHeight: '1.8' }}>
               You can also donate using PayPal:
             </p>
             <a 
               href={PAYPAL_URL}
-              className="inline-flex items-center bg-[#427d78] hover:bg-[#5eb3a1] text-white rounded-sm font-['Montserrat',sans-serif] font-semibold text-sm uppercase transition-all duration-300 border-2 border-[#427d78] hover:border-[#5eb3a1] shadow-md"
-              style={{ padding: '16px 32px', minHeight: '44px' }}
+              className="inline-flex items-center bg-[#427d78] hover:bg-[#5eb3a1] text-white rounded-sm font-['Montserrat',sans-serif] font-semibold text-base uppercase transition-all duration-300 border-2 border-[#427d78] hover:border-[#5eb3a1] shadow-md"
+              style={{ padding: '20px 40px', minHeight: '60px' }}
               aria-label="Donate using PayPal instead of Zeffy"
             >
               Donate via PayPal
@@ -123,10 +126,10 @@ export default function Donate() {
 
           {/* Trust Indicators */}
           <div className="card" style={{ marginBottom: 'var(--space-6)' }}>
-            <h3 className="text-2xl md:text-3xl font-['Jost',sans-serif] font-bold text-[#427d78] text-center" style={{ marginBottom: 'var(--space-4)' }}>
+            <h3 className="text-3xl md:text-4xl font-['Jost',sans-serif] font-bold text-[#427d78] text-center" style={{ marginBottom: 'var(--space-5)' }}>
               Your Donation is Secure
             </h3>
-            <p className="text-center text-base md:text-lg text-[#666] font-['Bitter',serif] font-medium" style={{ marginBottom: 'var(--space-5)', maxWidth: '720px', marginInline: 'auto' }}>
+            <p className="text-center text-lg md:text-xl text-[#666] font-['Bitter',serif] font-medium" style={{ marginBottom: 'var(--space-5)', maxWidth: '800px', marginInline: 'auto', lineHeight: '1.8' }}>
               🔒 Encrypted • ✓ PCI-compliant • 📄 Tax-deductible receipts
             </p>
             
@@ -151,24 +154,24 @@ export default function Donate() {
 
           {/* Impact Section */}
           <div className="card">
-            <h3 className="text-2xl md:text-3xl font-['Jost',sans-serif] font-bold text-[#427d78] text-center" style={{ marginBottom: 'var(--space-5)' }}>
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-['Jost',sans-serif] font-bold text-[#427d78] text-center" style={{ marginBottom: 'var(--space-6)' }}>
               Your Impact
             </h3>
-            <div className="grid-cards three-col" style={{ maxWidth: '960px', marginInline: 'auto' }}>
+            <div className="grid-cards three-col" style={{ maxWidth: '1000px', marginInline: 'auto' }}>
               <div className="text-center">
-                <div className="text-5xl" style={{ marginBottom: 'var(--space-3)' }}>🍽️</div>
-                <h4 className="text-lg md:text-xl font-['Jost',sans-serif] font-bold text-[#427d78]" style={{ marginBottom: 'var(--space-3)' }}>Nutritious Meals</h4>
-                <p className="text-sm md:text-base text-[#666] font-['Bitter',serif]" style={{ marginBottom: 0 }}>Supporting our dining room and meal delivery programs</p>
+                <div className="text-6xl md:text-7xl" style={{ marginBottom: 'var(--space-4)' }}>🍽️</div>
+                <h4 className="text-xl md:text-2xl font-['Jost',sans-serif] font-bold text-[#427d78]" style={{ marginBottom: 'var(--space-3)', lineHeight: '1.3' }}>Nutritious Meals</h4>
+                <p className="text-lg md:text-xl text-[#666] font-['Bitter',serif]" style={{ marginBottom: 0, lineHeight: '1.7' }}>Supporting our dining room and meal delivery programs</p>
               </div>
               <div className="text-center">
-                <div className="text-5xl" style={{ marginBottom: 'var(--space-3)' }}>🎨</div>
-                <h4 className="text-lg md:text-xl font-['Jost',sans-serif] font-bold text-[#427d78]" style={{ marginBottom: 'var(--space-3)' }}>Activities & Events</h4>
-                <p className="text-sm md:text-base text-[#666] font-['Bitter',serif]" style={{ marginBottom: 0 }}>Funding social, creative, and health activities</p>
+                <div className="text-6xl md:text-7xl" style={{ marginBottom: 'var(--space-4)' }}>🎨</div>
+                <h4 className="text-xl md:text-2xl font-['Jost',sans-serif] font-bold text-[#427d78]" style={{ marginBottom: 'var(--space-3)', lineHeight: '1.3' }}>Activities & Events</h4>
+                <p className="text-lg md:text-xl text-[#666] font-['Bitter',serif]" style={{ marginBottom: 0, lineHeight: '1.7' }}>Funding social, creative, and health activities</p>
               </div>
               <div className="text-center">
-                <div className="text-5xl" style={{ marginBottom: 'var(--space-3)' }}>🚐</div>
-                <h4 className="text-lg md:text-xl font-['Jost',sans-serif] font-bold text-[#427d78]" style={{ marginBottom: 'var(--space-3)' }}>Transportation</h4>
-                <p className="text-sm md:text-base text-[#666] font-['Bitter',serif]" style={{ marginBottom: 0 }}>Providing rides to medical appointments</p>
+                <div className="text-6xl md:text-7xl" style={{ marginBottom: 'var(--space-4)' }}>🚐</div>
+                <h4 className="text-xl md:text-2xl font-['Jost',sans-serif] font-bold text-[#427d78]" style={{ marginBottom: 'var(--space-3)', lineHeight: '1.3' }}>Transportation</h4>
+                <p className="text-lg md:text-xl text-[#666] font-['Bitter',serif]" style={{ marginBottom: 0, lineHeight: '1.7' }}>Providing rides to medical appointments</p>
               </div>
             </div>
           </div>
@@ -179,13 +182,13 @@ export default function Donate() {
       {/* Contact Information */}
       <section className="bg-white" style={{ paddingBlock: 'var(--space-6)' }}>
         <div className="container">
-          <address className="text-center not-italic text-base md:text-lg text-[#666] font-['Bitter',serif]">
-            <strong className="text-[#427d78] font-['Jost',sans-serif] text-xl md:text-2xl block" style={{ marginBottom: 'var(--space-2)' }}>Ukiah Senior Center</strong>
-            <span className="text-lg block" style={{ marginBottom: 'var(--space-1)' }}>499 Leslie St, Ukiah, CA 95482</span>
-            <div>
-              <a href="tel:+17074624343" className="text-[#427d78] hover:text-[#5eb3a1] transition-colors text-lg">(707) 462-4343</a>
+          <address className="text-center not-italic text-lg md:text-xl text-[#666] font-['Bitter',serif]" style={{ lineHeight: '1.8' }}>
+            <strong className="text-[#427d78] font-['Jost',sans-serif] text-2xl md:text-3xl block font-bold" style={{ marginBottom: 'var(--space-3)' }}>Ukiah Senior Center</strong>
+            <span className="text-xl block" style={{ marginBottom: 'var(--space-2)' }}>499 Leslie St, Ukiah, CA 95482</span>
+            <div className="text-xl">
+              <a href="tel:+17074624343" className="text-[#427d78] hover:text-[#5eb3a1] transition-colors">(707) 462-4343</a>
               <span className="mx-2">•</span>
-              <span className="text-lg">501(c)3 Non-Profit • Tax ID# 23-7258082</span>
+              <span>501(c)3 Non-Profit • Tax ID# 23-7258082</span>
             </div>
           </address>
         </div>

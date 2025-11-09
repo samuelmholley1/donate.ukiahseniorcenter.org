@@ -55,9 +55,22 @@ body {
   color: var(--copy);
   font-family: 'Bitter', Georgia, "Times New Roman", serif;
   font-size: 18px;
-  line-height: 1.7;
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Increase base font size for better senior readability */
+@media (min-width: 768px) {
+  html {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 20px;
+  }
 }
 
 h1,
@@ -90,7 +103,36 @@ h3 {
 
 p {
   margin-bottom: var(--space-3);
-  line-height: 1.7;
+  line-height: 1.8;
+}
+
+/* Improve link visibility for seniors */
+a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: all 200ms ease;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Enhanced button styles for accessibility */
+button,
+.btn-primary,
+a[role="button"] {
+  cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+}
+
+button:hover,
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* Container system */
@@ -107,32 +149,10 @@ p {
   }
 }
 
-/* Links - ensure sufficient contrast and larger click targets */
-a {
-  color: var(--teal);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-}
-
-a:hover,
-a:focus {
-  color: var(--tealHover);
-  text-decoration-thickness: 2px;
-}
-
-/* Focus styles - More visible for accessibility */
+/* Focus styles - Accessible */
 :focus-visible {
-  outline: 3px solid var(--ring);
-  outline-offset: 3px;
-  border-radius: 3px;
-}
-
-/* Button focus styles */
-button:focus-visible,
-a[role="button"]:focus-visible {
-  outline: 3px solid var(--ring);
-  outline-offset: 3px;
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
 }
 
 /* Reduced motion support */
@@ -204,26 +224,5 @@ a[role="button"]:focus-visible {
 .btn-primary:hover {
   background-color: var(--tealHover);
   border-color: var(--tealHover);
-}
-
-/* Ensure minimum touch target size for mobile (48x48px recommended by WCAG) */
-@media (max-width: 768px) {
-  button,
-  a {
-    min-height: 48px;
-    min-width: 48px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  :root {
-    --copy: #000000;
-    --mute: #000000;
-    --border: #000000;
-  }
 }
 
