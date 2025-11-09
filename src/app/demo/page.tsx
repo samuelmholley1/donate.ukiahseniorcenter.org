@@ -43,10 +43,10 @@ export default function Donate() {
           
           {/* Mission Statement Card */}
           <div className="card" style={{ marginBottom: 'var(--space-6)' }}>
-            <h2 className="text-3xl md:text-4xl font-['Jost',sans-serif] font-bold text-[#427d78] text-center" style={{ marginBottom: 'var(--space-4)' }}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-['Jost',sans-serif] font-bold text-[#427d78] text-center" style={{ marginBottom: 'var(--space-4)', lineHeight: '1.2' }}>
               Enhancing Quality of Life for Seniors
             </h2>
-            <p className="text-lg text-[#666] font-['Bitter',serif] text-center" style={{ marginBottom: 0, maxWidth: '880px', marginInline: 'auto' }}>
+            <p className="text-lg md:text-xl text-[#666] font-['Bitter',serif] text-center" style={{ marginBottom: 0, maxWidth: '900px', marginInline: 'auto', lineHeight: '1.8' }}>
               For more than 50 years, we&apos;ve been serving our seniors and disabled community. Every donation helps us continue this vital mission of providing essential meals, activities, transportation, and support services to enhance the quality of life for our community&apos;s seniors.
             </p>
           </div>
@@ -135,17 +135,17 @@ export default function Donate() {
             
             {/* Payment method icons */}
             <div className="flex flex-wrap items-center justify-center" style={{ gap: 'var(--space-4)' }}>
-              <span className="text-sm md:text-base font-['Montserrat',sans-serif] font-semibold text-[#666]">We accept:</span>
-              <svg width="40" height="28" viewBox="0 0 32 20" fill="none" aria-label="Visa">
+              <span className="text-base md:text-lg font-['Montserrat',sans-serif] font-semibold text-[#666]">We accept:</span>
+              <svg width="56" height="40" viewBox="0 0 32 20" fill="none" aria-label="Visa">
                 <rect width="32" height="20" rx="3" fill="#1434CB"/>
                 <text x="16" y="13" fill="white" fontSize="8" fontWeight="bold" textAnchor="middle">VISA</text>
               </svg>
-              <svg width="40" height="28" viewBox="0 0 32 20" fill="none" aria-label="Mastercard">
+              <svg width="56" height="40" viewBox="0 0 32 20" fill="none" aria-label="Mastercard">
                 <rect width="32" height="20" rx="3" fill="#EB001B"/>
                 <circle cx="12" cy="10" r="7" fill="#FF5F00"/>
                 <circle cx="20" cy="10" r="7" fill="#F79E1B"/>
               </svg>
-              <svg width="40" height="28" viewBox="0 0 32 20" fill="none" aria-label="American Express">
+              <svg width="56" height="40" viewBox="0 0 32 20" fill="none" aria-label="American Express">
                 <rect width="32" height="20" rx="3" fill="#006FCF"/>
                 <text x="16" y="13" fill="white" fontSize="7" fontWeight="bold" textAnchor="middle">AMEX</text>
               </svg>

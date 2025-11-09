@@ -5,9 +5,9 @@ export function SiteFooterContent() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" style={{ gap: 'var(--space-5)' }}>
           {/* Contact Us */}
           <div>
-            <h2 className="text-xl font-['Jost',sans-serif] font-bold text-[#427d78] mb-4">Contact Us</h2>
-            <address className="not-italic text-[#666] font-['Bitter',serif] text-sm leading-relaxed">
-              <strong className="text-black">Ukiah Senior Center</strong><br />
+            <h2 className="text-xl md:text-2xl font-['Jost',sans-serif] font-bold text-[#427d78] mb-4">Contact Us</h2>
+            <address className="not-italic text-[#666] font-['Bitter',serif] text-base md:text-lg leading-relaxed">
+              <strong className="text-black font-bold">Ukiah Senior Center</strong><br />
               499 Leslie St<br />
               Ukiah CA 95482<br />
               Tel: <a href="tel:+17074624343" className="text-[#427d78] hover:text-[#5eb3a1] transition-colors">(707) 462-4343</a><br />
@@ -22,8 +22,8 @@ export function SiteFooterContent() {
 
           {/* About Us */}
           <div>
-            <h2 className="text-xl font-['Jost',sans-serif] font-bold text-[#427d78] mb-4">About Us</h2>
-            <p className="text-[#666] font-['Bitter',serif] text-sm leading-relaxed">
+            <h2 className="text-xl md:text-2xl font-['Jost',sans-serif] font-bold text-[#427d78] mb-4">About Us</h2>
+            <p className="text-[#666] font-['Bitter',serif] text-base md:text-lg leading-relaxed">
               The Ukiah Senior Center&apos;s mission is to enhance and improve the quality of life for all Ukiah seniors, their families, and their caregivers, and to enable seniors to remain as independent as possible for as long as possible.
             </p>
             <div className="mt-4">
@@ -43,8 +43,8 @@ export function SiteFooterContent() {
 
           {/* Site Links */}
           <div>
-            <h2 className="text-xl font-['Jost',sans-serif] font-bold text-[#427d78] mb-4">Site Links</h2>
-            <ul className="space-y-2 text-[#666] font-['Bitter',serif] text-sm">
+            <h2 className="text-xl md:text-2xl font-['Jost',sans-serif] font-bold text-[#427d78] mb-4">Site Links</h2>
+            <ul className="space-y-2 text-[#666] font-['Bitter',serif] text-base md:text-lg">
               <li><a href="https://ukiahseniorcenter.org/category/services" className="text-[#427d78] hover:text-[#5eb3a1] transition-colors">Services</a></li>
               <li><a href="https://ukiahseniorcenter.org/category/activities" className="text-[#427d78] hover:text-[#5eb3a1] transition-colors">Activities</a></li>
               <li><a href="https://ukiahseniorcenter.org/thrift-store" className="text-[#427d78] hover:text-[#5eb3a1] transition-colors">Thrift Store</a></li>
@@ -56,8 +56,8 @@ export function SiteFooterContent() {
 
           {/* Sponsorship */}
           <div>
-            <h2 className="text-xl font-['Jost',sans-serif] font-bold text-[#427d78] mb-4">Sponsorship</h2>
-            <p className="text-[#666] font-['Bitter',serif] text-sm mb-3">
+            <h2 className="text-xl md:text-2xl font-['Jost',sans-serif] font-bold text-[#427d78] mb-4">Sponsorship</h2>
+            <p className="text-[#666] font-['Bitter',serif] text-base md:text-lg mb-3">
               Thank you to our generous sponsors who help make our services possible.
             </p>
           </div>
@@ -65,7 +65,7 @@ export function SiteFooterContent() {
 
         {/* Copyright */}
         <div style={{ marginTop: 'var(--space-6)', paddingTop: 'var(--space-5)' }} className="border-t border-gray-200">
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-[#666] font-['Bitter',serif]">
+          <div className="flex flex-col md:flex-row justify-between items-center text-base md:text-lg text-[#666] font-['Bitter',serif]">
             <p>Copyright © 2025 Ukiah Senior Center. All rights reserved.</p>
             <p className="mt-2 md:mt-0">Site By <a href="https://mendowebdesign.com" target="_blank" rel="noopener noreferrer" className="text-[#427d78] hover:text-[#5eb3a1] transition-colors">Mendo Web Design</a></p>
           </div>
