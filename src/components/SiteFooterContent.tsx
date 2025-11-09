@@ -67,7 +67,7 @@ export function SiteFooterContent() {
         <div style={{ marginTop: 'var(--space-6)', paddingTop: 'var(--space-5)' }} className="border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center text-base md:text-lg text-[#666] font-['Bitter',serif]">
             <p>Copyright © 2025 Ukiah Senior Center. All rights reserved.</p>
-            <p className="mt-2 md:mt-0">Site By <a href="https://mendowebdesign.com" target="_blank" rel="noopener noreferrer" className="text-[#427d78] hover:text-[#5eb3a1] transition-colors">Mendo Web Design</a></p>
+            <p className="mt-2 md:mt-0">Web page by <a href="https://samuelholley.com" target="_blank" rel="noopener noreferrer" className="text-[#427d78] hover:text-[#5eb3a1] transition-colors font-semibold">Samuel Holley AI Consulting</a></p>
           </div>
         </div>
       </div>

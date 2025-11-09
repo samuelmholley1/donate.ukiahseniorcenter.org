@@ -38,52 +38,28 @@ export default function Donate() {
       </section>
 
       {/* Main Content */}
-      <section className="bg-[#fafbff]" style={{ paddingBlock: 'var(--space-7)' }}>
+      <section className="bg-[#fafbff]" style={{ paddingBlock: 'var(--space-6)' }}>
         <div className="container">
           
-          {/* Mission Statement Card */}
-          <div className="card" style={{ marginBottom: 'var(--space-6)' }}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-['Jost',sans-serif] font-bold text-[#427d78] text-center" style={{ marginBottom: 'var(--space-4)', lineHeight: '1.2' }}>
-              Enhancing Quality of Life for Seniors
+          {/* Quick Value Prop */}
+          <div style={{ textAlign: 'center', marginBottom: 'var(--space-6)' }}>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-['Jost',sans-serif] font-bold text-[#427d78]" style={{ marginBottom: 'var(--space-3)', lineHeight: '1.2' }}>
+              Make Your Donation
             </h2>
-            <p className="text-lg md:text-xl text-[#666] font-['Bitter',serif] text-center" style={{ marginBottom: 0, maxWidth: '900px', marginInline: 'auto', lineHeight: '1.8' }}>
-              For more than 50 years, we&apos;ve been serving our seniors and disabled community. Every donation helps us continue this vital mission of providing essential meals, activities, transportation, and support services to enhance the quality of life for our community&apos;s seniors.
+            <p className="text-lg md:text-xl text-[#666] font-['Bitter',serif]" style={{ marginBottom: 0, maxWidth: '800px', marginInline: 'auto', lineHeight: '1.7' }}>
+              100% of donations support meals, activities, and services for seniors in Ukiah.
             </p>
           </div>
 
-          {/* Important Tip Notice */}
-          <div className="bg-blue-50 border-2 border-blue-400 rounded-lg shadow-md" style={{ padding: 'var(--space-5)', marginBottom: 'var(--space-6)' }}>
-            <h2 className="text-3xl md:text-4xl font-['Jost',sans-serif] font-bold text-blue-900 text-center" style={{ marginBottom: 'var(--space-4)', lineHeight: '1.3' }}>
-              💡 Important: Set Zeffy Tip to $0
-            </h2>
-            <p className="text-lg md:text-xl text-blue-900 font-['Bitter',serif] text-center" style={{ marginBottom: 'var(--space-5)', maxWidth: '920px', marginInline: 'auto', lineHeight: '1.8' }}>
-              When you fill out the donation form below, Zeffy will ask if you want to leave a tip. 
-              <strong className="font-bold"> Please set this tip amount to $0</strong> so 100% of your donation goes directly to the Ukiah Senior Center.
+          {/* Quick Tip Notice */}
+          <div className="bg-blue-50 border-l-4 border-blue-400 rounded p-4" style={{ marginBottom: 'var(--space-4)', maxWidth: '800px', marginInline: 'auto' }}>
+            <p className="text-sm md:text-base text-blue-900 font-['Bitter',serif]" style={{ marginBottom: 0, lineHeight: '1.6' }}>
+              <strong>💡 Tip:</strong> When prompted, set Zeffy tip to <strong>$0</strong> so 100% goes to seniors.
             </p>
-            <div className="bg-white rounded-lg border-2 border-blue-400" style={{ padding: 'var(--space-4)', maxWidth: '680px', marginInline: 'auto' }}>
-              <div style={{ position: 'relative', width: '100%', maxWidth: '100%', marginInline: 'auto' }}>
-                <Image
-                  src="/zero_tip.png"
-                  alt="Screenshot showing how to set Zeffy tip to zero during checkout"
-                  width={420}
-                  height={210}
-                  quality={95}
-                  className="rounded"
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
-                />
-              </div>
-              <p className="text-sm md:text-base text-gray-900 text-center font-['Bitter',serif] font-semibold" style={{ marginTop: 'var(--space-3)', marginBottom: 0, lineHeight: '1.6' }}>
-                Look for the tip section and click the custom amount to enter $0
-              </p>
-            </div>
           </div>
-            
+
           {/* Donation Form Card */}
           <div className="card" style={{ marginBottom: 'var(--space-6)' }}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-['Jost',sans-serif] font-bold text-[#427d78] text-center" style={{ marginBottom: 'var(--space-5)' }}>
-              Make Your Donation
-            </h2>
-            
             <div className="relative" style={{position:'relative',overflow:'hidden',height:'450px',width:'100%'}} role="region" aria-label="Zeffy donation form">
               {isLoading && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-50 rounded-lg z-10">
@@ -149,30 +125,6 @@ export default function Donate() {
                 <rect width="32" height="20" rx="3" fill="#006FCF"/>
                 <text x="16" y="13" fill="white" fontSize="7" fontWeight="bold" textAnchor="middle">AMEX</text>
               </svg>
-            </div>
-          </div>
-
-          {/* Impact Section */}
-          <div className="card">
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-['Jost',sans-serif] font-bold text-[#427d78] text-center" style={{ marginBottom: 'var(--space-6)' }}>
-              Your Impact
-            </h3>
-            <div className="grid-cards three-col" style={{ maxWidth: '1000px', marginInline: 'auto' }}>
-              <div className="text-center">
-                <div className="text-6xl md:text-7xl" style={{ marginBottom: 'var(--space-4)' }}>🍽️</div>
-                <h4 className="text-xl md:text-2xl font-['Jost',sans-serif] font-bold text-[#427d78]" style={{ marginBottom: 'var(--space-3)', lineHeight: '1.3' }}>Nutritious Meals</h4>
-                <p className="text-lg md:text-xl text-[#666] font-['Bitter',serif]" style={{ marginBottom: 0, lineHeight: '1.7' }}>Supporting our dining room and meal delivery programs</p>
-              </div>
-              <div className="text-center">
-                <div className="text-6xl md:text-7xl" style={{ marginBottom: 'var(--space-4)' }}>🎨</div>
-                <h4 className="text-xl md:text-2xl font-['Jost',sans-serif] font-bold text-[#427d78]" style={{ marginBottom: 'var(--space-3)', lineHeight: '1.3' }}>Activities & Events</h4>
-                <p className="text-lg md:text-xl text-[#666] font-['Bitter',serif]" style={{ marginBottom: 0, lineHeight: '1.7' }}>Funding social, creative, and health activities</p>
-              </div>
-              <div className="text-center">
-                <div className="text-6xl md:text-7xl" style={{ marginBottom: 'var(--space-4)' }}>🚐</div>
-                <h4 className="text-xl md:text-2xl font-['Jost',sans-serif] font-bold text-[#427d78]" style={{ marginBottom: 'var(--space-3)', lineHeight: '1.3' }}>Transportation</h4>
-                <p className="text-lg md:text-xl text-[#666] font-['Bitter',serif]" style={{ marginBottom: 0, lineHeight: '1.7' }}>Providing rides to medical appointments</p>
-              </div>
             </div>
           </div>
 
