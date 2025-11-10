@@ -14,38 +14,15 @@ export default function Donate() {
     <>
       <SiteNavigation />
       
-      {/* Hero Section */}
-      <section className="relative bg-[#427d78] overflow-hidden" style={{ paddingBlock: '48px' }} aria-label="Donation page hero">
-        <div className="absolute inset-0 opacity-20">
-          <Image
-            src="https://ukiahseniorcenter.org/wp-content/uploads/2024/07/ukiah-senior-center-banner-image.jpg"
-            fill
-            className="object-cover"
-            alt=""
-            priority
-          />
-        </div>
-        <div className="container relative z-10">
-          <div className="text-center" style={{ maxWidth: '860px', marginInline: 'auto' }}>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-['Jost',sans-serif] font-bold text-white" style={{ lineHeight: '1.15', marginBottom: 'var(--space-5)' }}>
-              Support the Ukiah Senior Center
-            </h1>
-            <p className="text-xl md:text-2xl lg:text-3xl text-white/95 font-['Bitter',serif]" style={{ lineHeight: '1.5', fontWeight: '500' }}>
-              Your donation provides essential meals, activities, and support to seniors in our community.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Main Content */}
       <section className="bg-[#fafbff]" style={{ paddingBlock: 'var(--space-6)' }}>
         <div className="container">
           
-          {/* Quick Value Prop */}
-          <div style={{ textAlign: 'center', marginBottom: 'var(--space-6)' }}>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-['Jost',sans-serif] font-bold text-[#427d78]" style={{ marginBottom: 'var(--space-3)', lineHeight: '1.2' }}>
-              Make Your Donation
-            </h2>
+          {/* Page Header */}
+          <div style={{ textAlign: 'center', marginBottom: 'var(--space-5)' }}>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-['Jost',sans-serif] font-bold text-[#427d78]" style={{ marginBottom: 'var(--space-3)', lineHeight: '1.2' }}>
+              Support the Ukiah Senior Center
+            </h1>
             <p className="text-lg md:text-xl text-[#666] font-['Bitter',serif]" style={{ marginBottom: 0, maxWidth: '800px', marginInline: 'auto', lineHeight: '1.7' }}>
               100% of donations support meals, activities, and services for seniors in Ukiah.
             </p>
