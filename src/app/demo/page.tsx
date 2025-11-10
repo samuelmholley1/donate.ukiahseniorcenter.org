@@ -29,35 +29,33 @@ export default function Donate() {
           </div>
 
           {/* Important Tip Notice */}
-          <div className="bg-blue-50 border-2 border-blue-400 rounded-lg shadow-md" style={{ padding: 'var(--space-4)', marginBottom: 'var(--space-4)' }}>
-            <h2 className="text-2xl md:text-3xl font-['Jost',sans-serif] font-bold text-blue-900 text-center" style={{ marginBottom: 'var(--space-3)', lineHeight: '1.3' }}>
-              💡 Important: Set Zeffy Tip to $0
-            </h2>
-            <p className="text-sm md:text-base text-blue-900 font-['Bitter',serif] text-center" style={{ marginBottom: 'var(--space-3)', maxWidth: '880px', marginInline: 'auto', lineHeight: '1.7' }}>
-              When you fill out the donation form below, Zeffy will ask if you want to leave a tip.
-              <strong className="font-bold"> Please set this tip amount to $0</strong> so 100% of your donation goes directly to the Ukiah Senior Center.
+          <div className="bg-blue-50 border border-blue-300 rounded-lg" style={{ padding: 'var(--space-3)', marginBottom: 'var(--space-4)' }}>
+            <h3 className="text-base md:text-lg font-['Jost',sans-serif] font-bold text-blue-900 text-center" style={{ marginBottom: 'var(--space-2)', lineHeight: '1.3' }}>
+              💡 Set Zeffy Tip to $0
+            </h3>
+            <p className="text-xs md:text-sm text-blue-900 font-['Bitter',serif] text-center" style={{ marginBottom: 'var(--space-2)', maxWidth: '700px', marginInline: 'auto', lineHeight: '1.6' }}>
+              When filling out the form below, <strong>set the tip to $0</strong> so 100% goes to the Senior Center.
             </p>
-            <div className="bg-white rounded-lg border-2 border-blue-400" style={{ padding: 'var(--space-3)', maxWidth: '850px', marginInline: 'auto' }}>
-              <div style={{ position: 'relative', width: '100%', maxWidth: '100%', marginInline: 'auto' }}>
-                <Image
-                  src="/zero_tip.png"
-                  alt="Screenshot showing how to set Zeffy tip to zero during checkout"
-                  width={525}
-                  height={263}
-                  className="rounded"
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
-                  quality={95}
-                />
-              </div>
-              <p className="text-xs md:text-sm text-gray-900 text-center font-['Bitter',serif] font-semibold" style={{ marginTop: 'var(--space-2)', marginBottom: 0, lineHeight: '1.5' }}>
-                Look for the tip section and click the custom amount to enter $0
-              </p>
+            <div className="bg-white rounded border border-blue-300" style={{ padding: 'var(--space-2)', maxWidth: '400px', marginInline: 'auto' }}>
+              <Image
+                src="/zero_tip.png"
+                alt="Set Zeffy tip to zero"
+                width={525}
+                height={263}
+                className="rounded"
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+                quality={90}
+              />
             </div>
           </div>
 
           {/* Donation Form Card */}
           <div className="card" style={{ marginBottom: 'var(--space-4)' }}>
-            <div className="relative" style={{position:'relative',overflow:'hidden',height:'450px',width:'100%'}} role="region" aria-label="Zeffy donation form">
+            <div className="text-center" style={{ marginBottom: 'var(--space-3)' }}>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-['Jost',sans-serif] font-bold text-[#427d78]" style={{ marginBottom: 'var(--space-2)', lineHeight: '1.2' }}>Make Your Donation</h2>
+              <p className="text-base md:text-lg text-[#666] font-['Bitter',serif]" style={{ marginBottom: 0, maxWidth: '600px', marginInline: 'auto', lineHeight: '1.5' }}>Choose your donation amount below</p>
+            </div>
+            <div className="bg-gray-50 rounded-lg border-2 border-gray-200 relative" style={{ padding: 'var(--space-3)' }}>
               {isLoading && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-50 rounded-lg z-10">
                   <LoadingStates size="lg" />
@@ -70,12 +68,14 @@ export default function Donate() {
                   </div>
                 </div>
               )}
-              <iframe 
-                title='Donation form powered by Zeffy - use this form to make a secure donation to Ukiah Senior Center' 
-                style={{position: 'absolute', border: 0, top:0,left:0,bottom:0,right:0,width:'100%',height:'100%'}} 
-                src='https://www.zeffy.com/embed/donation-form/support-ukiah-senior-center'
-                onLoad={() => setIsLoading(false)}
-              ></iframe>
+              <div style={{position:'relative',overflow:'hidden',height:'1200px',width:'100%'}}>
+                <iframe 
+                  title='Donation form powered by Zeffy - use this form to make a secure donation to Ukiah Senior Center' 
+                  style={{position: 'absolute', border: 0, top:0,left:0,bottom:0,right:0,width:'100%',height:'100%'}} 
+                  src='https://www.zeffy.com/embed/donation-form/support-ukiah-senior-center'
+                  onLoad={() => setIsLoading(false)}
+                ></iframe>
+              </div>
             </div>
           </div>
 
