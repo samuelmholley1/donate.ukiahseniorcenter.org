@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useState } from 'react';
 import { PAYPAL_URL } from '@/lib/copy';
 import LoadingStates from '@/components/LoadingStates';
@@ -37,14 +36,11 @@ export default function Donate() {
               When filling out the form below, <strong>set the tip to $0</strong> so 100% goes to the Senior Center.
             </p>
             <div className="bg-white rounded border border-blue-300" style={{ padding: 'var(--space-2)', maxWidth: '400px', marginInline: 'auto' }}>
-              <Image
+              <img
                 src="/zero_tip.png"
                 alt="Set Zeffy tip to zero"
-                width={525}
-                height={263}
                 className="rounded"
                 style={{ width: '100%', height: 'auto', display: 'block' }}
-                quality={90}
               />
             </div>
           </div>
