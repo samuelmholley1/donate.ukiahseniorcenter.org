@@ -43,7 +43,11 @@ export default function Donate() {
                 style={{ 
                   width: '100%', 
                   height: 'auto', 
-                  display: 'block'
+                  display: 'block',
+                  imageRendering: '-webkit-optimize-contrast',
+                  WebkitFontSmoothing: 'antialiased',
+                  backfaceVisibility: 'hidden',
+                  transform: 'translateZ(0)'
                 }}
               />
             </div>
