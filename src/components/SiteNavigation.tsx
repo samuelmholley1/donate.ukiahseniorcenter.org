@@ -15,18 +15,18 @@ export function SiteNavigation() {
   }, []);
 
   return (
-    <header className="bg-[#427d78] sticky top-0 z-50 shadow-md">
+    <header className="bg-[#427d78] sticky top-0 z-50 shadow-md overflow-visible">
       <div className="container">
         <div className="flex items-center justify-between py-4">
           {/* Logo - Links to Home */}
-          <a href="https://ukiahseniorcenter.org" className="shrink-0 hover:opacity-80 transition-opacity">
+          <a href="https://ukiahseniorcenter.org" className="shrink-0 hover:opacity-80 transition-opacity relative z-10">
             <img
               src="https://ukiahseniorcenter.org/wp-content/uploads/2023/07/usc-logo-greentext.webp"
               alt="Ukiah Senior Center"
-              className={`transition-all duration-300 ${
+              className={`transition-all duration-500 ease-in-out ${
                 isScrolled 
                   ? 'w-16 h-16 md:w-20 md:h-20' 
-                  : 'w-[90px] h-[90px] md:w-28 md:h-28'
+                  : 'w-[140px] h-[140px] md:w-[160px] md:h-[160px]'
               }`}
             />
           </a>
