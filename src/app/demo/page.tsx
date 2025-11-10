@@ -43,8 +43,7 @@ export default function Donate() {
                 style={{ 
                   width: '100%', 
                   height: 'auto', 
-                  display: 'block',
-                  imageRendering: 'pixelated'
+                  display: 'block'
                 }}
               />
             </div>
