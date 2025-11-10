@@ -93,49 +93,6 @@ export default function Donate() {
             </a>
           </div>
 
-          {/* Trust Indicators */}
-          <div className="card" style={{ marginBottom: 'var(--space-4)' }}>
-            <h3 className="text-2xl md:text-3xl font-['Jost',sans-serif] font-bold text-[#427d78] text-center" style={{ marginBottom: 'var(--space-4)' }}>
-              Your Donation is Secure
-            </h3>
-            <p className="text-center text-base md:text-lg text-[#666] font-['Bitter',serif] font-medium" style={{ marginBottom: 'var(--space-4)', maxWidth: '800px', marginInline: 'auto', lineHeight: '1.7' }}>
-              🔒 Encrypted • ✓ PCI-compliant • 📄 Tax-deductible receipts
-            </p>
-            
-            {/* Payment method icons */}
-            <div className="flex flex-wrap items-center justify-center" style={{ gap: 'var(--space-4)' }}>
-              <span className="text-base md:text-lg font-['Montserrat',sans-serif] font-semibold text-[#666]">We accept:</span>
-              <svg width="56" height="40" viewBox="0 0 32 20" fill="none" aria-label="Visa">
-                <rect width="32" height="20" rx="3" fill="#1434CB"/>
-                <text x="16" y="13" fill="white" fontSize="8" fontWeight="bold" textAnchor="middle">VISA</text>
-              </svg>
-              <svg width="56" height="40" viewBox="0 0 32 20" fill="none" aria-label="Mastercard">
-                <rect width="32" height="20" rx="3" fill="#EB001B"/>
-                <circle cx="12" cy="10" r="7" fill="#FF5F00"/>
-                <circle cx="20" cy="10" r="7" fill="#F79E1B"/>
-              </svg>
-              <svg width="56" height="40" viewBox="0 0 32 20" fill="none" aria-label="American Express">
-                <rect width="32" height="20" rx="3" fill="#006FCF"/>
-                <text x="16" y="13" fill="white" fontSize="7" fontWeight="bold" textAnchor="middle">AMEX</text>
-              </svg>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Contact Information */}
-      <section className="bg-white" style={{ paddingBlock: 'var(--space-4)' }}>
-        <div className="container">
-          <address className="text-center not-italic text-base md:text-lg text-[#666] font-['Bitter',serif]" style={{ lineHeight: '1.7' }}>
-            <strong className="text-[#427d78] font-['Jost',sans-serif] text-xl md:text-2xl block font-bold" style={{ marginBottom: 'var(--space-2)' }}>Ukiah Senior Center</strong>
-            <span className="text-lg block" style={{ marginBottom: 'var(--space-2)' }}>499 Leslie St, Ukiah, CA 95482</span>
-            <div className="text-lg">
-              <a href="tel:+17074624343" className="text-[#427d78] hover:text-[#5eb3a1] transition-colors">(707) 462-4343</a>
-              <span className="mx-2">•</span>
-              <span>501(c)3 Non-Profit • Tax ID# 23-7258082</span>
-            </div>
-          </address>
         </div>
       </section>
 
