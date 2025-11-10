@@ -28,14 +28,14 @@ export default function Donate() {
           </div>
 
           {/* Important Tip Notice */}
-          <div className="bg-blue-50 border border-blue-300 rounded-lg" style={{ padding: 'var(--space-3)', marginBottom: 'var(--space-4)' }}>
-            <h3 className="text-base md:text-lg font-['Jost',sans-serif] font-bold text-blue-900 text-center" style={{ marginBottom: 'var(--space-2)', lineHeight: '1.3' }}>
-              💡 Set Zeffy Tip to $0
+          <div className="bg-red-50 border-2 border-red-400 rounded-lg" style={{ padding: 'var(--space-3)', marginBottom: 'var(--space-4)' }}>
+            <h3 className="text-base md:text-lg font-['Jost',sans-serif] font-bold text-red-900 text-center" style={{ marginBottom: 'var(--space-2)', lineHeight: '1.3' }}>
+              ⚠️ Set Zeffy Tip to $0
             </h3>
-            <p className="text-xs md:text-sm text-blue-900 font-['Bitter',serif] text-center" style={{ marginBottom: 'var(--space-2)', maxWidth: '700px', marginInline: 'auto', lineHeight: '1.6' }}>
-              When filling out the form below, <strong>set the tip to $0</strong> so 100% goes to the Senior Center.
+            <p className="text-xs md:text-sm text-red-900 font-['Bitter',serif] text-center" style={{ marginBottom: 'var(--space-2)', maxWidth: '700px', marginInline: 'auto', lineHeight: '1.6' }}>
+              When filling out the form below, <strong>set the tip to $0</strong> so you don&apos;t pay any fees.
             </p>
-            <div className="bg-white rounded border border-blue-300" style={{ padding: 'var(--space-2)', maxWidth: '400px', marginInline: 'auto' }}>
+            <div className="bg-white rounded border border-red-300" style={{ padding: 'var(--space-2)', maxWidth: '400px', marginInline: 'auto' }}>
               <img
                 src="/zero_tip.png"
                 alt="Set Zeffy tip to zero"
@@ -51,7 +51,7 @@ export default function Donate() {
               <h2 className="text-xl md:text-2xl lg:text-3xl font-['Jost',sans-serif] font-bold text-[#427d78]" style={{ marginBottom: 'var(--space-2)', lineHeight: '1.2' }}>Make Your Donation</h2>
               <p className="text-base md:text-lg text-[#666] font-['Bitter',serif]" style={{ marginBottom: 0, maxWidth: '600px', marginInline: 'auto', lineHeight: '1.5' }}>Choose your donation amount below</p>
             </div>
-            <div className="bg-gray-50 rounded-lg border-2 border-gray-200 relative" style={{ padding: 'var(--space-3)' }}>
+            <div className="bg-gray-50 rounded-lg border-4 border-[#427d78] relative" style={{ padding: 'var(--space-3)' }}>
               {isLoading && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-50 rounded-lg z-10">
                   <LoadingStates size="lg" />
