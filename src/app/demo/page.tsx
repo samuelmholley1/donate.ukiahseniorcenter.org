@@ -40,7 +40,12 @@ export default function Donate() {
                 src="/zero_tip.png"
                 alt="Set Zeffy tip to zero"
                 className="rounded"
-                style={{ width: '100%', height: 'auto', display: 'block' }}
+                style={{ 
+                  width: '100%', 
+                  height: 'auto', 
+                  display: 'block',
+                  imageRendering: 'pixelated'
+                }}
               />
             </div>
           </div>
